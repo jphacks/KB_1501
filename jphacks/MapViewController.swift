@@ -19,6 +19,8 @@ class MapViewController: UIViewController {
     private let mapView = MKMapView()
     let locationManager = CLLocationManager()
     
+    var spots: [Spot] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,12 +38,23 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 1000, 1000), animated: true)
         
+        spots.forEach { spot in
+            addSpotPin(spot)
+        }
         addRoute(CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644), toCoordinate: CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512))
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addSpotPin(spot: Spot) {
+        let pin = MKPointAnnotation()
+        pin.title = spot.name
+        pin.subtitle = spot.detail
+        pin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(spot.latitude), CLLocationDegrees(spot.longitude))
+        mapView.addAnnotation(pin)
     }
     
     func addPin(lat: Double, lon: Double) {
@@ -120,7 +133,7 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
         
         // test, add pin
-        addPin((manager.location?.coordinate.latitude)!, lon: (manager.location?.coordinate.longitude)!)
+        //addPin((manager.location?.coordinate.latitude)!, lon: (manager.location?.coordinate.longitude)!)
         print("\(manager.location?.coordinate.latitude),\(manager.location?.coordinate.longitude)")
     }
     
@@ -136,7 +149,6 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     // 経路を描画するときの色や線の太さを指定
-    
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolyline {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
