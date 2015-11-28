@@ -33,7 +33,13 @@ class SearchViewController: BaseViewController {
     @IBAction func GoToMapView(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
-        setSpotsData(controller)
+
+        //setSpotsData(controller)
+
+        controller.spots = sightseengSpots
+        
+        
+        controller.viaLocations = [CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude), CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)]
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -97,8 +103,8 @@ class SearchViewController: BaseViewController {
     
     func setSpotsData(controller:MapViewController){
         controller.spots = sightseengSpots
-        controller.toLocation = CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude)
-        controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
+        //controller.toLocation = CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude)
+        //    controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
     }
 }
 
