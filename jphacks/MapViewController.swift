@@ -33,6 +33,26 @@ class MapViewController: BaseViewController {
         }
         mapView.delegate = self
         
+        fitMapWithSpots(fromLocation, toLocation: toLocation)
+        
+        
+        dismissButton.frame = CGRectMake(30,50, 50,50)
+        dismissButton.layer.cornerRadius = 25
+        dismissButton.setTitle("✕", forState: .Normal)
+        dismissButton.titleLabel?.font = UIFont.systemFontOfSize(30)
+        dismissButton.setTitleColor(Constants.COLOR_DISABLED, forState: .Normal)
+        dismissButton.backgroundColor = Constants.COLOR_WHITE
+        dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
+        self.view.addSubview(dismissButton)
+        
+        
+        spots.forEach { spot in
+            addSpotPin(spot)
+        }
+        addRoute(CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644), toCoordinate: CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512))
+    }
+    
+    func fitMapWithSpots(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) {
         // fromLocation, toLocationに基いてmapの表示範囲を設定
         // 現在地と目的地を含む矩形を計算
         let maxLat: Double
@@ -61,22 +81,6 @@ class MapViewController: BaseViewController {
         let span = MKCoordinateSpanMake(fmax(leastCoordSpan, fabs(maxLat - minLat) * mapMargin), fmax(leastCoordSpan, fabs(maxLon - minLon) * mapMargin))
         
         mapView.setRegion(mapView.regionThatFits(MKCoordinateRegionMake(center, span)), animated: true)
-        
-        
-        dismissButton.frame = CGRectMake(30,50, 50,50)
-        dismissButton.layer.cornerRadius = 25
-        dismissButton.setTitle("✕", forState: .Normal)
-        dismissButton.titleLabel?.font = UIFont.systemFontOfSize(30)
-        dismissButton.setTitleColor(Constants.COLOR_DISABLED, forState: .Normal)
-        dismissButton.backgroundColor = Constants.COLOR_WHITE
-        dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
-        self.view.addSubview(dismissButton)
-        
-        
-        spots.forEach { spot in
-            addSpotPin(spot)
-        }
-        addRoute(CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644), toCoordinate: CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512))
     }
     
     override func didReceiveMemoryWarning() {
