@@ -95,7 +95,11 @@ extension SpotSetViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        spot = Spot(name: "sample" + String(indexPath.row), address: "sample", detail: "", latitude: 1, longitude: 1)
+        if searchedSpots != nil {
+            spot = searchedSpots[indexPath.row]
+        } else {
+            spot = spots[indexPath.row]
+        }
         dismiss()
     }
     
