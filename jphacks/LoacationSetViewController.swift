@@ -7,21 +7,31 @@
 //
 import UIKit
 
-protocol LocationSetterDelegate {
+/*protocol LocationSetterDelegate {
     func 
-}
+}*/
 
 class LocationSetViewController: UIViewController {
     
-  
+    var location: Location!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        if location == nil { return }
+        location.latitude = 1
+        location.longitude = 2
+        location.locationName = "sample"
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func dismissView(sender: AnyObject) {
+        dismiss()
+    }
+    
+    func dismiss(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

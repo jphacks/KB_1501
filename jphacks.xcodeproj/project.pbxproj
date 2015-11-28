@@ -19,6 +19,7 @@
 		FAE71B0E1C093B7700854951 /* LoacationSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B0D1C093B7700854951 /* LoacationSetViewController.swift */; };
 		FAE71B101C093BBE00854951 /* LocationSetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE71B0F1C093BBE00854951 /* LocationSetView.storyboard */; };
 		FAE71B121C093D3E00854951 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B111C093D3E00854951 /* Location.swift */; };
+		FAE71B141C094A3F00854951 /* SpotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B131C094A3F00854951 /* SpotManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		FAE71B0D1C093B7700854951 /* LoacationSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoacationSetViewController.swift; sourceTree = "<group>"; };
 		FAE71B0F1C093BBE00854951 /* LocationSetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocationSetView.storyboard; sourceTree = "<group>"; };
 		FAE71B111C093D3E00854951 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FAE71B131C094A3F00854951 /* SpotManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				55891C211C092F16003B360B /* Info.plist */,
 				FAE71B0D1C093B7700854951 /* LoacationSetViewController.swift */,
 				FAE71B111C093D3E00854951 /* Location.swift */,
+				FAE71B131C094A3F00854951 /* SpotManager.swift */,
 			);
 			path = jphacks;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				FAE71B0E1C093B7700854951 /* LoacationSetViewController.swift in Sources */,
 				B1ADC3FB1C093655005D35A1 /* SearchViewController.swift in Sources */,
 				FAE71B121C093D3E00854951 /* Location.swift in Sources */,
+				FAE71B141C094A3F00854951 /* SpotManager.swift in Sources */,
 				B1ADC3FD1C09368E005D35A1 /* MapViewController.swift in Sources */,
 				55891C161C092F16003B360B /* AppDelegate.swift in Sources */,
 			);

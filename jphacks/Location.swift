@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Location {
-    var latitude: Float = 0
+class Location : NSObject {
+    dynamic var latitude: Float = 0
     var longitude: Float = 0
-    var locationName: String = ""
+    var locationName: String = "initial"
 }

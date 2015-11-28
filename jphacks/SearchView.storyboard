@@ -30,18 +30,28 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.25" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="SetStartLocation:" destination="K4d-Og-TSJ" eventType="touchUpInside" id="dPI-hU-b3k"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUD-eb-VXd">
                                 <rect key="frame" x="94" y="199" width="221" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.25" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Target"/>
+                                <connections>
+                                    <action selector="SetTargetLocation:" destination="K4d-Og-TSJ" eventType="touchUpInside" id="ZRJ-iA-V0A"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="startLocationButton" destination="10b-yQ-XCF" id="S30-wf-7V6"/>
+                        <outlet property="targetLocationButton" destination="LUD-eb-VXd" id="ghM-wI-PUl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VD2-TX-036" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

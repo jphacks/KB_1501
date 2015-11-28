@@ -5,22 +5,39 @@
 //  Created by 内村祐之 on 2015/11/28.
 //  Copyright © 2015年 at. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class SearchViewController: UIViewController {
     
+
+    @IBOutlet weak var startLocationButton: UIButton!
+    @IBOutlet weak var targetLocationButton: UIButton!
+    
+    
     @IBAction func GoToMapView(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
-        // controller.delegate = self;
-        // controller.checkout = self.checkout;
         self.presentViewController(controller, animated: true, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+      //  startLocation = Location()
+      //  targetLocation = Location()
+        /*startLocation.addObserver(self, forKeyPath: "latitude", options: .New, context: nil)
+        targetLocation.addObserver(self, forKeyPath: "latitude", options: .New, context: nil)*/
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        startLocationButton.setTitle(SpotManager.startLocation.locationName, forState: .Normal)
+        targetLocationButton.setTitle(SpotManager.targetLocation.locationName, forState: .Normal)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+      /*  startLocation.removeObserver(self, forKeyPath: "latitude", context: nil)
+        targetLocation.removeObserver(self, forKeyPath: "latitude", context: nil)*/
+        super.viewWillDisappear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,7 +45,25 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func SetStartLocation(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
+        controller.location = SpotManager.startLocation
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
     
+    @IBAction func SetTargetLocation(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
+        controller.location = SpotManager.targetLocation
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+ /*   override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        
+        startLocationButton.setTitle(startLocation.locationName, forState: .Normal)
+        targetLocationButton.setTitle(targetLocation.locationName, forState: .Normal)
+        
+    }*/
     /*
     // MARK: - Navigation
     
