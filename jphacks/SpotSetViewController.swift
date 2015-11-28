@@ -9,6 +9,7 @@ import UIKit
 
 class SpotSetViewController: BaseViewController {
     
+    var spots: [Spot]!
     var spot: Spot!
     var completion: (Spot) -> Void = {_ in }
 
@@ -25,6 +26,7 @@ class SpotSetViewController: BaseViewController {
         seachedTableView.allowsSelection = true
         seachedTableView.allowsMultipleSelection = false
         spot = Spot(name: "sample", address: "sample", detail: "", latitude: 1, longitude: 1)
+        spots = SpotManager.sharedController.spots
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,22 +60,28 @@ extension SpotSetViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! SearchedTableViewCell
-        cell.setup("sample" + String(indexPath.row))
+        cell.setup(spots[indexPath.row].name)
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return myItems.count
-        return 4
+        return spots.count
     }
     
-    // セクション高さ
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         spot = Spot(name: "sample" + String(indexPath.row), address: "sample", detail: "", latitude: 1, longitude: 1)
         dismiss()
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 }

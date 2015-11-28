@@ -18,10 +18,6 @@ class SearchedTableViewCell : UITableViewCell {
             label.textAlignment = NSTextAlignment.Center
             label.textColor = UIColor.blackColor()
             label.backgroundColor = UIColor.whiteColor()
-            label.layer.masksToBounds = true
-            label.layer.cornerRadius = 15
-            label.layer.borderColor = UIColor.greenColor().CGColor
-            label.layer.borderWidth = 1
             self.addSubview(label)
         }
         let labelHeight: CGFloat = 60
