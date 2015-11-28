@@ -15,6 +15,9 @@ class SpotManager {
     let sculptureSpotRepository: SculptureSpotRepository
     let toiletSpotRepository: ToiletSpotRepository
     
+    static var startSpot: Spot = Spot(name: "initial", address: "", detail: "", latitude: 0, longitude: 0)
+    static var targetSpot: Spot = Spot(name: "initial", address: "", detail: "", latitude: 0, longitude: 0)
+    
     private init() {
         nightViewSpotRepository = NightViewSpotRepository()
         sightseeingSpotRepository = SightseeingSpotRepository()
