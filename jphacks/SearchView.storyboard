@@ -57,23 +57,23 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blS-VY-ljn" userLabel="SearchButton">
-                                <rect key="frame" x="147" y="571" width="120" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blS-VY-ljn" userLabel="SearchButton">
+                                <rect key="frame" x="141" y="564" width="133" height="133"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="search_button"/>
                                 <connections>
                                     <action selector="GoToMapView:" destination="K4d-Og-TSJ" eventType="touchUpInside" id="nW9-Ma-7d9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipz-jW-5Uj">
-                                <rect key="frame" x="50" y="364" width="53" height="30"/>
+                                <rect key="frame" x="50" y="321" width="53" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt3-UX-TSz" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="50" y="489" width="64" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt3-UX-TSz" userLabel="ToiletToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="50" y="446" width="64" height="64"/>
                                 <animations/>
                                 <state key="normal" image="off-1"/>
                                 <userDefinedRuntimeAttributes>
@@ -82,8 +82,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYE-Nh-R29" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="219" y="402" width="64" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEx-pE-X6F" userLabel="NightSpotToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="139" y="359" width="64" height="64"/>
+                                <animations/>
+                                <state key="normal" image="off-2"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageId">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYE-Nh-R29" userLabel="MonumentsToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="219" y="359" width="64" height="64"/>
                                 <animations/>
                                 <state key="normal" image="off-3"/>
                                 <userDefinedRuntimeAttributes>
@@ -92,8 +102,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0n-PA-gbx" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="301" y="402" width="64" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0n-PA-gbx" userLabel="StructuresToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="301" y="359" width="64" height="64"/>
                                 <animations/>
                                 <state key="normal" image="off-5"/>
                                 <userDefinedRuntimeAttributes>
@@ -102,8 +112,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpx-1L-aF6" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="50" y="402" width="64" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpx-1L-aF6" userLabel="ConvinienceToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="50" y="359" width="64" height="64"/>
                                 <animations/>
                                 <state key="normal" image="off-6"/>
                                 <userDefinedRuntimeAttributes>
@@ -112,23 +122,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6i-ji-KK5" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="139" y="489" width="64" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6i-ji-KK5" userLabel="TheaterToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="139" y="446" width="64" height="64"/>
                                 <animations/>
                                 <state key="normal" image="off-4"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="imageId">
                                         <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEx-pE-X6F" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="139" y="402" width="64" height="64"/>
-                                <animations/>
-                                <state key="normal" image="off-2"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="imageId">
-                                        <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -138,9 +138,15 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="ToiletToggle" destination="vt3-UX-TSz" id="FSk-et-z2e"/>
+                        <outlet property="convinienceToggle" destination="Mpx-1L-aF6" id="CiW-Hd-NEa"/>
+                        <outlet property="monumentsToggle" destination="zYE-Nh-R29" id="RRn-lb-FGJ"/>
+                        <outlet property="nightSpotsToggle" destination="IEx-pE-X6F" id="xL8-O0-Y54"/>
                         <outlet property="searchButton" destination="blS-VY-ljn" id="3Xn-Sd-8RW"/>
                         <outlet property="startLocationButton" destination="10b-yQ-XCF" id="S30-wf-7V6"/>
+                        <outlet property="structureToggle" destination="M0n-PA-gbx" id="OTD-dm-1ed"/>
                         <outlet property="targetLocationButton" destination="LUD-eb-VXd" id="ghM-wI-PUl"/>
+                        <outlet property="theatersToggle" destination="N6i-ji-KK5" id="kTU-eY-waY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VD2-TX-036" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,11 +155,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="off-1" width="154" height="154"/>
-        <image name="off-2" width="154" height="154"/>
-        <image name="off-3" width="154" height="154"/>
-        <image name="off-4" width="154" height="154"/>
-        <image name="off-5" width="154" height="154"/>
-        <image name="off-6" width="154" height="154"/>
+        <image name="off-1" width="51" height="51"/>
+        <image name="off-2" width="51" height="51"/>
+        <image name="off-3" width="51" height="51"/>
+        <image name="off-4" width="51" height="51"/>
+        <image name="off-5" width="51" height="51"/>
+        <image name="off-6" width="51" height="51"/>
+        <image name="search_button" width="133" height="133"/>
     </resources>
 </document>
