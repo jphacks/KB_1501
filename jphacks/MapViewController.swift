@@ -19,6 +19,10 @@ class MapViewController: UIViewController {
     let mapView = MKMapView()
     let locationManager = CLLocationManager()
     
+    func setSpots(spots: [Spot]) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -40,6 +44,14 @@ class MapViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addSpotPin(spot: Spot) {
+        let pin = MKPointAnnotation()
+        pin.title = spot.name
+        pin.subtitle = spot.detail
+        pin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(spot.latitude), CLLocationDegrees(spot.longitude))
+        mapView.addAnnotation(pin)
     }
     
     func addPin(lat: Double, lon: Double) {
