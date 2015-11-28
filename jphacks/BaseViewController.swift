@@ -21,4 +21,8 @@ class BaseViewController: UIViewController {
             self.view.addSubview(statusBarBackgroundView)
         }
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 }

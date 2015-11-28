@@ -31,7 +31,8 @@ class MapViewController: BaseViewController {
             locationManager.requestAlwaysAuthorization()
         }
         
-        mapView.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 150)
+        let statusBarHeight = Util.getStatusBarHeight()
+        mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight)
         if !self.view.subviews.contains(mapView) {
             self.view.addSubview(mapView)
         }
@@ -132,8 +133,6 @@ extension MapViewController: CLLocationManagerDelegate {
         // 中心を変更
         mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
         
-        // test, add pin
-        //addPin((manager.location?.coordinate.latitude)!, lon: (manager.location?.coordinate.longitude)!)
         print("\(manager.location?.coordinate.latitude),\(manager.location?.coordinate.longitude)")
     }
     
