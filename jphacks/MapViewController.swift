@@ -18,8 +18,7 @@ class MapViewController: BaseViewController {
     
     var spots: [Spot] = []
     
-    var fromLocation: CLLocationCoordinate2D! = nil
-    var toLocation: CLLocationCoordinate2D! = nil
+    var viaLocations: [CLLocationCoordinate2D] = []
     
     var spotDetailView: SpotDetailView! = nil
     
@@ -36,14 +35,21 @@ class MapViewController: BaseViewController {
         mapView.delegate = self
         
         // mapの表示範囲
-        fitMapWithSpots(fromLocation, toLocation: toLocation)
+        fitMapWithSpots(viaLocations.first!, toLocation: viaLocations.last!)
         
         // 渡されたspotsについてピンを立てる
         spots.forEach { spot in
             addSpotPin(spot)
         }
         
-        addRoute(self.fromLocation, toCoordinate: self.toLocation)
+        var prel: CLLocationCoordinate2D! = nil
+        for l in self.viaLocations {
+            if let unwrappedPrel = prel {
+                addRoute(unwrappedPrel, toCoordinate: l)
+            }
+            prel = l
+        }
+        
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap")
         mapView.addGestureRecognizer(tapGestureRecognizer)
@@ -121,9 +127,9 @@ class MapViewController: BaseViewController {
         mapView.addAnnotation(pin)
     }
     
-    func addPin(lat: Double, lon: Double) {
+    func addPin(location: CLLocationCoordinate2D) {
         let pin = MKPointAnnotation()
-        pin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(lat), CLLocationDegrees(lon))
+        pin.coordinate = location
         pin.title = "title"
         pin.subtitle = "sub title"
         mapView.addAnnotation(pin)
