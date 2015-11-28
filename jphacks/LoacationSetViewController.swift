@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class LocationSetViewController: UIViewController {
+class LocationSetViewController: BaseViewController {
     
     var spot: Spot!
     var completion: (Spot) -> Void = {_ in }
