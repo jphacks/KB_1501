@@ -16,12 +16,24 @@
 		B1ADC3F91C0935FE005D35A1 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1ADC3F81C0935FE005D35A1 /* MapView.storyboard */; };
 		B1ADC3FB1C093655005D35A1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ADC3FA1C093655005D35A1 /* SearchViewController.swift */; };
 		B1ADC3FD1C09368E005D35A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ADC3FC1C09368E005D35A1 /* MapViewController.swift */; };
-		B1C4CACD1C093E1C00543F92 /* nightView.csv in Resources */ = {isa = PBXBuildFile; fileRef = B1C4CACB1C093E1C00543F92 /* nightView.csv */; };
-		B1C4CACE1C093E1C00543F92 /* sightseeing.csv in Resources */ = {isa = PBXBuildFile; fileRef = B1C4CACC1C093E1C00543F92 /* sightseeing.csv */; };
 		B1C4CAD01C093E4E00543F92 /* CSVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CACF1C093E4E00543F92 /* CSVManager.swift */; };
 		B1C4CAD41C0942BD00543F92 /* NightViewSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAD31C0942BD00543F92 /* NightViewSpot.swift */; };
 		B1C4CAD61C0942CE00543F92 /* SightseeingSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAD51C0942CE00543F92 /* SightseeingSpot.swift */; };
 		B1C4CAD81C09436B00543F92 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAD71C09436B00543F92 /* Spot.swift */; };
+		B1C4CAE01C09672B00543F92 /* nightView.csv in Resources */ = {isa = PBXBuildFile; fileRef = B1C4CADB1C09672B00543F92 /* nightView.csv */; };
+		B1C4CAE21C09672B00543F92 /* sightseeing.csv in Resources */ = {isa = PBXBuildFile; fileRef = B1C4CADD1C09672B00543F92 /* sightseeing.csv */; };
+		B1C4CAE31C09672B00543F92 /* toilet.csv in Resources */ = {isa = PBXBuildFile; fileRef = B1C4CADE1C09672B00543F92 /* toilet.csv */; };
+		B1C4CAE51C09692300543F92 /* NightViewSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAE41C09692300543F92 /* NightViewSpotRepository.swift */; };
+		B1C4CAE71C0969AF00543F92 /* SightseeingSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAE61C0969AF00543F92 /* SightseeingSpotRepository.swift */; };
+		B1C4CAE91C096C3400543F92 /* SpotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAE81C096C3400543F92 /* SpotManager.swift */; };
+		B1C4CAEB1C096F0500543F92 /* filmingLocationKobe.csv in Resources */ = {isa = PBXBuildFile; fileRef = B1C4CAEA1C096F0500543F92 /* filmingLocationKobe.csv */; };
+		B1C4CAED1C096F6100543F92 /* FilmingLocationSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAEC1C096F6100543F92 /* FilmingLocationSpot.swift */; };
+		B1C4CAEF1C09702B00543F92 /* FilmingLocationSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAEE1C09702B00543F92 /* FilmingLocationSpotRepository.swift */; };
+		B1C4CAF11C09717900543F92 /* sculptureKobecity.csv in Resources */ = {isa = PBXBuildFile; fileRef = B1C4CAF01C09717900543F92 /* sculptureKobecity.csv */; };
+		B1C4CAF31C09722400543F92 /* SculptureSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF21C09722400543F92 /* SculptureSpot.swift */; };
+		B1C4CAF51C09729800543F92 /* SculptureSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF41C09729800543F92 /* SculptureSpotRepository.swift */; };
+		B1C4CAF71C09748900543F92 /* ToiletSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF61C09748900543F92 /* ToiletSpot.swift */; };
+		B1C4CAF91C0974E900543F92 /* ToiletSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +69,24 @@
 		B1ADC3F81C0935FE005D35A1 /* MapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		B1ADC3FA1C093655005D35A1 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B1ADC3FC1C09368E005D35A1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		B1C4CACB1C093E1C00543F92 /* nightView.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nightView.csv; sourceTree = "<group>"; };
-		B1C4CACC1C093E1C00543F92 /* sightseeing.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sightseeing.csv; sourceTree = "<group>"; };
 		B1C4CACF1C093E4E00543F92 /* CSVManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVManager.swift; sourceTree = "<group>"; };
 		B1C4CAD31C0942BD00543F92 /* NightViewSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightViewSpot.swift; sourceTree = "<group>"; };
 		B1C4CAD51C0942CE00543F92 /* SightseeingSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightseeingSpot.swift; sourceTree = "<group>"; };
 		B1C4CAD71C09436B00543F92 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		B1C4CADB1C09672B00543F92 /* nightView.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nightView.csv; sourceTree = "<group>"; };
+		B1C4CADD1C09672B00543F92 /* sightseeing.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sightseeing.csv; sourceTree = "<group>"; };
+		B1C4CADE1C09672B00543F92 /* toilet.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toilet.csv; sourceTree = "<group>"; };
+		B1C4CAE41C09692300543F92 /* NightViewSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightViewSpotRepository.swift; sourceTree = "<group>"; };
+		B1C4CAE61C0969AF00543F92 /* SightseeingSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightseeingSpotRepository.swift; sourceTree = "<group>"; };
+		B1C4CAE81C096C3400543F92 /* SpotManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotManager.swift; sourceTree = "<group>"; };
+		B1C4CAEA1C096F0500543F92 /* filmingLocationKobe.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = filmingLocationKobe.csv; sourceTree = "<group>"; };
+		B1C4CAEC1C096F6100543F92 /* FilmingLocationSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmingLocationSpot.swift; sourceTree = "<group>"; };
+		B1C4CAEE1C09702B00543F92 /* FilmingLocationSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmingLocationSpotRepository.swift; sourceTree = "<group>"; };
+		B1C4CAF01C09717900543F92 /* sculptureKobecity.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sculptureKobecity.csv; sourceTree = "<group>"; };
+		B1C4CAF21C09722400543F92 /* SculptureSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SculptureSpot.swift; sourceTree = "<group>"; };
+		B1C4CAF41C09729800543F92 /* SculptureSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SculptureSpotRepository.swift; sourceTree = "<group>"; };
+		B1C4CAF61C09748900543F92 /* ToiletSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletSpot.swift; sourceTree = "<group>"; };
+		B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletSpotRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +146,6 @@
 				55891C1C1C092F16003B360B /* Assets.xcassets */,
 				55891C1E1C092F16003B360B /* LaunchScreen.storyboard */,
 				55891C211C092F16003B360B /* Info.plist */,
-				B1C4CACA1C093E0500543F92 /* resource */,
 			);
 			path = jphacks;
 			sourceTree = "<group>";
@@ -148,8 +171,11 @@
 		B1C4CACA1C093E0500543F92 /* resource */ = {
 			isa = PBXGroup;
 			children = (
-				B1C4CACB1C093E1C00543F92 /* nightView.csv */,
-				B1C4CACC1C093E1C00543F92 /* sightseeing.csv */,
+				B1C4CADB1C09672B00543F92 /* nightView.csv */,
+				B1C4CADD1C09672B00543F92 /* sightseeing.csv */,
+				B1C4CAEA1C096F0500543F92 /* filmingLocationKobe.csv */,
+				B1C4CAF01C09717900543F92 /* sculptureKobecity.csv */,
+				B1C4CADE1C09672B00543F92 /* toilet.csv */,
 			);
 			name = resource;
 			sourceTree = "<group>";
@@ -157,10 +183,20 @@
 		B1C4CAD91C09466A00543F92 /* CSV */ = {
 			isa = PBXGroup;
 			children = (
-				B1C4CACF1C093E4E00543F92 /* CSVManager.swift */,
-				B1C4CAD71C09436B00543F92 /* Spot.swift */,
+				B1C4CAE81C096C3400543F92 /* SpotManager.swift */,
+				B1C4CAE41C09692300543F92 /* NightViewSpotRepository.swift */,
+				B1C4CAE61C0969AF00543F92 /* SightseeingSpotRepository.swift */,
+				B1C4CAEE1C09702B00543F92 /* FilmingLocationSpotRepository.swift */,
+				B1C4CAF41C09729800543F92 /* SculptureSpotRepository.swift */,
+				B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */,
 				B1C4CAD31C0942BD00543F92 /* NightViewSpot.swift */,
 				B1C4CAD51C0942CE00543F92 /* SightseeingSpot.swift */,
+				B1C4CAEC1C096F6100543F92 /* FilmingLocationSpot.swift */,
+				B1C4CAF21C09722400543F92 /* SculptureSpot.swift */,
+				B1C4CAF61C09748900543F92 /* ToiletSpot.swift */,
+				B1C4CAD71C09436B00543F92 /* Spot.swift */,
+				B1C4CACF1C093E4E00543F92 /* CSVManager.swift */,
+				B1C4CACA1C093E0500543F92 /* resource */,
 			);
 			name = CSV;
 			sourceTree = "<group>";
@@ -270,11 +306,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				55891C201C092F16003B360B /* LaunchScreen.storyboard in Resources */,
+				B1C4CAE31C09672B00543F92 /* toilet.csv in Resources */,
 				B1ADC3F71C0935DF005D35A1 /* SearchView.storyboard in Resources */,
+				B1C4CAE21C09672B00543F92 /* sightseeing.csv in Resources */,
+				B1C4CAEB1C096F0500543F92 /* filmingLocationKobe.csv in Resources */,
+				B1C4CAF11C09717900543F92 /* sculptureKobecity.csv in Resources */,
 				B1ADC3F91C0935FE005D35A1 /* MapView.storyboard in Resources */,
-				B1C4CACE1C093E1C00543F92 /* sightseeing.csv in Resources */,
+				B1C4CAE01C09672B00543F92 /* nightView.csv in Resources */,
 				55891C1D1C092F16003B360B /* Assets.xcassets in Resources */,
-				B1C4CACD1C093E1C00543F92 /* nightView.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,13 +338,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C4CAF31C09722400543F92 /* SculptureSpot.swift in Sources */,
+				B1C4CAF51C09729800543F92 /* SculptureSpotRepository.swift in Sources */,
 				B1C4CAD41C0942BD00543F92 /* NightViewSpot.swift in Sources */,
 				B1ADC3FB1C093655005D35A1 /* SearchViewController.swift in Sources */,
 				B1C4CAD61C0942CE00543F92 /* SightseeingSpot.swift in Sources */,
+				B1C4CAEF1C09702B00543F92 /* FilmingLocationSpotRepository.swift in Sources */,
+				B1C4CAE71C0969AF00543F92 /* SightseeingSpotRepository.swift in Sources */,
+				B1C4CAE51C09692300543F92 /* NightViewSpotRepository.swift in Sources */,
+				B1C4CAE91C096C3400543F92 /* SpotManager.swift in Sources */,
 				B1ADC3FD1C09368E005D35A1 /* MapViewController.swift in Sources */,
 				B1C4CAD01C093E4E00543F92 /* CSVManager.swift in Sources */,
 				B1C4CAD81C09436B00543F92 /* Spot.swift in Sources */,
+				B1C4CAF91C0974E900543F92 /* ToiletSpotRepository.swift in Sources */,
+				B1C4CAED1C096F6100543F92 /* FilmingLocationSpot.swift in Sources */,
 				55891C161C092F16003B360B /* AppDelegate.swift in Sources */,
+				B1C4CAF71C09748900543F92 /* ToiletSpot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
