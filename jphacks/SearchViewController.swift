@@ -19,7 +19,7 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var searchButton: UIButton!
 
     let locationManager = CLLocationManager()
-    
+
     @IBOutlet weak var toiletToggle: SpotOptionButton!
     @IBOutlet weak var nightSpotsToggle: SpotOptionButton!
     @IBOutlet weak var monumentsToggle: SpotOptionButton!
@@ -32,8 +32,8 @@ class SearchViewController: BaseViewController {
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
         controller.spots = SightseengSpots
 
-        controller.toLocation = CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644)
-        controller.fromLocation = CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512)
+        controller.toLocation = CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude)
+        controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
 
         self.presentViewController(controller, animated: true, completion: nil)
     }

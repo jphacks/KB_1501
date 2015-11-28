@@ -9,6 +9,8 @@ import UIKit
 
 class SpotSetViewController: BaseViewController {
     
+    var spots: [Spot]!
+    var searchedSpots: [Spot]! = nil
     var spot: Spot!
     var completion: (Spot) -> Void = {_ in }
 
@@ -25,6 +27,7 @@ class SpotSetViewController: BaseViewController {
         seachedTableView.allowsSelection = true
         seachedTableView.allowsMultipleSelection = false
         spot = Spot(name: "sample", address: "sample", detail: "", latitude: 1, longitude: 1)
+        spots = SpotManager.sharedController.spots
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,13 +47,26 @@ class SpotSetViewController: BaseViewController {
 extension SpotSetViewController : UISearchBarDelegate  {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterContainsWithSearchText(searchText)
+        self.seachedTableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.view.endEditing(true)
+    }
+    
+    func filterContainsWithSearchText(searchText: String) {
+        if searchText == "" {
+            return searchedSpots = nil
+        }
+        searchedSpots = spots.filter { spot -> Bool in
+            return spot.name.rangeOfString(searchText) != nil
+        }
+        
     }
 }
 
@@ -58,22 +74,40 @@ extension SpotSetViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! SearchedTableViewCell
-        cell.setup("sample" + String(indexPath.row))
+        if searchedSpots != nil {
+            cell.setup(searchedSpots[indexPath.row].name)
+        } else {
+            cell.setup(spots[indexPath.row].name)
+        }
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return myItems.count
-        return 4
+        if searchedSpots != nil {
+            return self.searchedSpots.count
+        }
+        return self.spots.count
+
     }
     
-    // セクション高さ
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
+        return 50
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        spot = Spot(name: "sample" + String(indexPath.row), address: "sample", detail: "", latitude: 1, longitude: 1)
+        if searchedSpots != nil {
+            spot = searchedSpots[indexPath.row]
+        } else {
+            spot = spots[indexPath.row]
+        }
         dismiss()
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 }
