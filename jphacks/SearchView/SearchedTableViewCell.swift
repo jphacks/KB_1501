@@ -11,6 +11,7 @@ import UIKit
 
 class SearchedTableViewCell : UITableViewCell {
     var label: UILabel! = nil
+    
     func setup(title: String) {
         self.backgroundColor = UIColor.clearColor()
         if label == nil {

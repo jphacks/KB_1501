@@ -12,32 +12,40 @@ import UIKit
 class SpotOptionButton : UIButton {
     
     var imageId: Int = 0
+    var tapGestureRecognizer: UITapGestureRecognizer! = nil
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    private var _selected: Bool = false
+    var hilightened: Bool {
+        set{
+            _selected = newValue
+            if newValue {
+                print("on" + String(imageId))
+                self.setImage(UIImage(named: "on-" + String(imageId)), forState: UIControlState.Normal)
+            } else {
+                print("off" + String(imageId))
+                self.setImage(UIImage(named: "off-" + String(imageId)), forState: UIControlState.Normal)
+            }
+        }
+        get{
+            return _selected
+        }
+    }
+    
+    func tapped() {
+        print("tap")
+        hilightened = !hilightened
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped")
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
 
-    }
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-    }
-    
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if self.state == .Normal {
-            super.touchesBegan(touches, withEvent: event)
-            self.imageView?.image = UIImage(named: "on-" + String(imageId))
-        }else{
-            super.touchesEnded(touches, withEvent: event)
-            self.imageView?.image = UIImage(named: "off-" + String(imageId))
-        }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped")
+        self.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        if touches == nil { return }
-        if self.state == .Normal {
-            super.touchesBegan(touches!, withEvent: event)
-            self.imageView?.image = UIImage(named: "on-" + String(imageId))
-        }else{
-            super.touchesEnded(touches!, withEvent: event)
-            self.imageView?.image = UIImage(named: "off-" + String(imageId))
-        }
-    }
 }
