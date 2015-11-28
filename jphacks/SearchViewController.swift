@@ -42,6 +42,10 @@ class SearchViewController: UIViewController {
             SightseengSpots.append(SightseeingSpot(result: result))
             print(SightseengSpots.last?.name)
         }
+        
+        let header = SearchHeaderView()
+        header.setup(CGRectMake(0, UIApplication.sharedApplication().statusBarFrame.height, self.view.bounds.width, 50))
+        self.view.addSubview(header)
     }
     
     override func viewWillAppear(animated: Bool) {

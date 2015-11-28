@@ -26,6 +26,7 @@
 		FAE71B1A1C094D9400854951 /* LoacationSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B191C094D9400854951 /* LoacationSetViewController.swift */; };
 		FAE71B1C1C094DAD00854951 /* LocationSetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */; };
 		FAE71B1F1C096E8500854951 /* SearchedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B1E1C096E8500854951 /* SearchedTableViewCell.swift */; };
+		FAE71B211C09764600854951 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B201C09764600854951 /* SearchHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		FAE71B191C094D9400854951 /* LoacationSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoacationSetViewController.swift; path = ../LoacationSetViewController.swift; sourceTree = "<group>"; };
 		FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocationSetView.storyboard; sourceTree = "<group>"; };
 		FAE71B1E1C096E8500854951 /* SearchedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedTableViewCell.swift; sourceTree = "<group>"; };
+		FAE71B201C09764600854951 /* SearchHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				B1ADC3FA1C093655005D35A1 /* SearchViewController.swift */,
 				FAE71B191C094D9400854951 /* LoacationSetViewController.swift */,
 				FAE71B1E1C096E8500854951 /* SearchedTableViewCell.swift */,
+				FAE71B201C09764600854951 /* SearchHeaderView.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				FAE71B1A1C094D9400854951 /* LoacationSetViewController.swift in Sources */,
 				B1C4CAD01C093E4E00543F92 /* CSVManager.swift in Sources */,
 				FAE71B1F1C096E8500854951 /* SearchedTableViewCell.swift in Sources */,
+				FAE71B211C09764600854951 /* SearchHeaderView.swift in Sources */,
 				FAE71B161C094D5600854951 /* SpotManager.swift in Sources */,
 				B1C4CAD81C09436B00543F92 /* Spot.swift in Sources */,
 				55891C161C092F16003B360B /* AppDelegate.swift in Sources */,

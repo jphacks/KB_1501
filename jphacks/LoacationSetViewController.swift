@@ -49,7 +49,6 @@ extension LocationSetViewController : UISearchBarDelegate  {
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
     }
     
-    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.view.endEditing(true)
     }
@@ -58,9 +57,8 @@ extension LocationSetViewController : UISearchBarDelegate  {
 extension LocationSetViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! SearchedTableViewCell
-        cell.setup("sample" + String(indexPath))
+        cell.setup("sample" + String(indexPath.row))
         return cell
     }
 
@@ -75,7 +73,7 @@ extension LocationSetViewController : UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("Num: \(indexPath.row)")
-        // print("Value: \(myItems[indexPath.row])")
+        spot = Spot(name: "sample" + String(indexPath.row), address: "sample", detail: "", latitude: 1, longitude: 1)
+        dismiss()
     }
 }
