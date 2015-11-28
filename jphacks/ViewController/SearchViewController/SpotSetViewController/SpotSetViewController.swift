@@ -90,10 +90,6 @@ extension SpotSetViewController : UITableViewDataSource, UITableViewDelegate {
 
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
-    }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if searchedSpots != nil {
             spot = searchedSpots[indexPath.row]
