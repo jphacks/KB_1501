@@ -19,6 +19,8 @@ class MapViewController: BaseViewController {
     private let mapView = MKMapView()
     let locationManager = CLLocationManager()
     
+    let dismissButton: UIButton! = UIButton()
+    
     var spots: [Spot] = []
     
     override func viewDidLoad() {
@@ -39,6 +41,16 @@ class MapViewController: BaseViewController {
         mapView.delegate = self
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 1000, 1000), animated: true)
         
+        
+        dismissButton.frame = CGRectMake(30,50, 50,50)
+        dismissButton.setTitle("✕", forState: .Normal)
+        dismissButton.titleLabel?.font = UIFont.systemFontOfSize(50)
+        dismissButton.setTitleColor(Constants.COLOR_DISABLED, forState: .Normal)
+        dismissButton.backgroundColor = Constants.COLOR_WHITE
+        dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
+        self.view.addSubview(dismissButton)
+        
+        
         spots.forEach { spot in
             addSpotPin(spot)
         }
@@ -48,6 +60,10 @@ class MapViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func dismiss() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func addSpotPin(spot: Spot) {
