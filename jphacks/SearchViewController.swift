@@ -32,8 +32,16 @@ class SearchViewController: BaseViewController {
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
         controller.spots = SightseengSpots
         
-        
-        controller.viaLocations = [CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude), CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)]
+        var viaLocations: [CLLocationCoordinate2D] = []
+        if let spot = SpotManager.startSpot {
+            viaLocations.append(CLLocationCoordinate2D(latitude: spot.latitude, longitude: spot.longitude))
+        } else {
+            viaLocations.append(locationManager.location!.coordinate)
+        }
+        if let spot = SpotManager.targetSpot {
+            viaLocations.append(CLLocationCoordinate2D(latitude: spot.latitude, longitude: spot.longitude))
+        }
+        controller.viaLocations = viaLocations
 
         self.presentViewController(controller, animated: true, completion: nil)
     }
@@ -41,7 +49,7 @@ class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        // 位置情報に関して権限をもらう
         locationManager.delegate = self
         let status = CLLocationManager.authorizationStatus()
         if(status == CLAuthorizationStatus.NotDetermined) {
@@ -67,8 +75,8 @@ class SearchViewController: BaseViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        startLocationButton.setTitle(SpotManager.startSpot.name, forState: .Normal)
-        targetLocationButton.setTitle(SpotManager.targetSpot.name, forState: .Normal)
+        startLocationButton.setTitle(SpotManager.startSpot?.name ?? "(現在地)", forState: .Normal)
+        targetLocationButton.setTitle(SpotManager.targetSpot?.name ?? "(タップして設定)", forState: .Normal)
     }
     
     override func viewWillDisappear(animated: Bool) {
