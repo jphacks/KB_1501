@@ -43,8 +43,9 @@ class MapViewController: BaseViewController {
         
         
         dismissButton.frame = CGRectMake(30,50, 50,50)
+        dismissButton.layer.cornerRadius = 25
         dismissButton.setTitle("✕", forState: .Normal)
-        dismissButton.titleLabel?.font = UIFont.systemFontOfSize(50)
+        dismissButton.titleLabel?.font = UIFont.systemFontOfSize(30)
         dismissButton.setTitleColor(Constants.COLOR_DISABLED, forState: .Normal)
         dismissButton.backgroundColor = Constants.COLOR_WHITE
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
