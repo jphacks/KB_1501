@@ -9,6 +9,6 @@
 import Foundation
 
 class SpotManager {
-    static var startLocation: Location = Location()
-    static var targetLocation: Location = Location()
+    static var startSpot: Spot = Spot(name: "initial", address: "", detail: "", latitude: 0, longitude: 0)
+    static var targetSpot: Spot = Spot(name: "initial", address: "", detail: "", latitude: 0, longitude: 0)
 }

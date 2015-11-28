@@ -7,16 +7,18 @@
 //
 import UIKit
 
+
+
 class LocationSetViewController: UIViewController {
     
-    var location: Location!
+    var spot: Spot!
+    var completion: (Spot) -> Void = {_ in }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if location == nil { return }
-        location.latitude = 1
-        location.longitude = 2
-        location.locationName = "sample"
+        if spot == nil { return }
+        
+        spot = Spot(name: "sample", address: "sample", detail: "", latitude: 1, longitude: 1)
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,6 +30,7 @@ class LocationSetViewController: UIViewController {
     }
     
     func dismiss(){
+        completion(spot)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

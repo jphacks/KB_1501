@@ -42,8 +42,8 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        startLocationButton.setTitle(SpotManager.startLocation.locationName, forState: .Normal)
-        targetLocationButton.setTitle(SpotManager.targetLocation.locationName, forState: .Normal)
+        startLocationButton.setTitle(SpotManager.startSpot.name, forState: .Normal)
+        targetLocationButton.setTitle(SpotManager.targetSpot.name, forState: .Normal)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -57,14 +57,21 @@ class SearchViewController: UIViewController {
     @IBAction func SetStartLocation(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
-        controller.location = SpotManager.startLocation
+        controller.spot = SpotManager.startSpot
+        controller.completion = {(spot:Spot) -> Void in
+            SpotManager.startSpot = spot
+        }
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
     @IBAction func SetTargetLocation(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
-        controller.location = SpotManager.targetLocation
+        controller.spot = SpotManager.targetSpot
+        controller.completion = {(spot:Spot) -> Void in
+            SpotManager.targetSpot = spot
+        }
+
         self.presentViewController(controller, animated: true, completion: nil)
     }
 }
