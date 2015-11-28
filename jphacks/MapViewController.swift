@@ -12,26 +12,19 @@ import CoreLocation
 
 class MapViewController: BaseViewController {
     
-    @IBAction func NextView(sender: AnyObject) {
-        
-    }
-    
     private let mapView = MKMapView()
-    let locationManager = CLLocationManager()
     
     let dismissButton: UIButton! = UIButton()
     
     var spots: [Spot] = []
     
+    var fromLocation: CLLocationCoordinate2D! = nil
+    var toLocation: CLLocationCoordinate2D! = nil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        locationManager.delegate = self
-        let status = CLLocationManager.authorizationStatus()
-        if(status == CLAuthorizationStatus.NotDetermined) {
-            locationManager.requestAlwaysAuthorization()
-        }
         
         let statusBarHeight = Util.getStatusBarHeight()
         mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight)
@@ -39,7 +32,8 @@ class MapViewController: BaseViewController {
             self.view.addSubview(mapView)
         }
         mapView.delegate = self
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 1000, 1000), animated: true)
+        
+        fitMapWithSpots(fromLocation, toLocation: toLocation)
         
         
         dismissButton.frame = CGRectMake(30,50, 50,50)
@@ -56,6 +50,37 @@ class MapViewController: BaseViewController {
             addSpotPin(spot)
         }
         addRoute(CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644), toCoordinate: CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512))
+    }
+    
+    func fitMapWithSpots(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) {
+        // fromLocation, toLocationに基いてmapの表示範囲を設定
+        // 現在地と目的地を含む矩形を計算
+        let maxLat: Double
+        let minLat: Double
+        let maxLon: Double
+        let minLon: Double
+        if fromLocation.latitude > toLocation.latitude {
+            maxLat = fromLocation.latitude
+            minLat = toLocation.latitude
+        } else {
+            maxLat = toLocation.latitude
+            minLat = fromLocation.latitude
+        }
+        if fromLocation.longitude > toLocation.longitude {
+            maxLon = fromLocation.longitude
+            minLon = toLocation.longitude
+        } else {
+            maxLon = toLocation.longitude
+            minLon = fromLocation.longitude
+        }
+        
+        let center = CLLocationCoordinate2DMake((maxLat + minLat) / 2, (maxLon + minLon) / 2)
+        
+        let mapMargin:Double = 1.5;  // 経路が入る幅(1.0)＋余白(0.5)
+        let leastCoordSpan:Double = 0.005;    // 拡大表示したときの最大値
+        let span = MKCoordinateSpanMake(fmax(leastCoordSpan, fabs(maxLat - minLat) * mapMargin), fmax(leastCoordSpan, fabs(maxLon - minLon) * mapMargin))
+        
+        mapView.setRegion(mapView.regionThatFits(MKCoordinateRegionMake(center, span)), animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,38 +148,6 @@ class MapViewController: BaseViewController {
     // tapをおいたとき用
     func getLocationFromTap(sender: UILongPressGestureRecognizer) -> CLLocationCoordinate2D {
         return self.mapView.convertPoint(sender.locationInView(mapView), toCoordinateFromView: mapView)
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        switch (status) {
-        case .NotDetermined:
-            print("NotDetermined")
-        case .Restricted:
-            print("Restricted")
-        case .Denied:
-            print("Denied")
-        case .AuthorizedAlways:
-            print("AuthorizedAlways")
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest// 取得精度の設定.
-            locationManager.distanceFilter = 1// 取得頻度の設定.
-            locationManager.startUpdatingLocation()
-        case .AuthorizedWhenInUse:
-            print("AuthorizedWhenInUse")
-        }
-    }
-    
-    // 位置情報がupdateされた時
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // 中心を変更
-        mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
-        
-        print("\(manager.location?.coordinate.latitude),\(manager.location?.coordinate.longitude)")
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print(error)
     }
 }
 
