@@ -38,7 +38,7 @@
 		B1C4CAF71C09748900543F92 /* ToiletSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF61C09748900543F92 /* ToiletSpot.swift */; };
 		B1C4CAF91C0974E900543F92 /* ToiletSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */; };
 		FAE71B1A1C094D9400854951 /* SpotSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B191C094D9400854951 /* SpotSetViewController.swift */; };
-		FAE71B1C1C094DAD00854951 /* LocationSetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */; };
+		FAE71B1C1C094DAD00854951 /* SpotSetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE71B1B1C094DAD00854951 /* SpotSetView.storyboard */; };
 		FAE71B241C097F9F00854951 /* SearchedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */; };
 		FAE71B251C097F9F00854951 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B231C097F9F00854951 /* SearchHeaderView.swift */; };
 /* End PBXBuildFile section */
@@ -98,7 +98,7 @@
 		B1C4CAF61C09748900543F92 /* ToiletSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletSpot.swift; sourceTree = "<group>"; };
 		B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletSpotRepository.swift; sourceTree = "<group>"; };
 		FAE71B191C094D9400854951 /* SpotSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotSetViewController.swift; sourceTree = "<group>"; };
-		FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocationSetView.storyboard; sourceTree = "<group>"; };
+		FAE71B1B1C094DAD00854951 /* SpotSetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpotSetView.storyboard; sourceTree = "<group>"; };
 		FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedTableViewCell.swift; path = SearchView/SearchedTableViewCell.swift; sourceTree = "<group>"; };
 		FAE71B231C097F9F00854951 /* SearchHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHeaderView.swift; path = SearchView/SearchHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,7 +153,7 @@
 			children = (
 				55891C151C092F16003B360B /* AppDelegate.swift */,
 				B1ADC3F61C0935DF005D35A1 /* SearchView.storyboard */,
-				FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */,
+				FAE71B1B1C094DAD00854951 /* SpotSetView.storyboard */,
 				B1ADC3F81C0935FE005D35A1 /* MapView.storyboard */,
 				FAE71B191C094D9400854951 /* SpotSetViewController.swift */,
 				B1ADC3FC1C09368E005D35A1 /* MapViewController.swift */,
@@ -335,7 +335,7 @@
 				B1ADC3F91C0935FE005D35A1 /* MapView.storyboard in Resources */,
 				B1C4CAE01C09672B00543F92 /* nightView.csv in Resources */,
 				55891C1D1C092F16003B360B /* Assets.xcassets in Resources */,
-				FAE71B1C1C094DAD00854951 /* LocationSetView.storyboard in Resources */,
+				FAE71B1C1C094DAD00854951 /* SpotSetView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
