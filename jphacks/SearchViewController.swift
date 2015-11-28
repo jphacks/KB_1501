@@ -15,6 +15,7 @@ class SearchViewController: BaseViewController {
 
     @IBOutlet weak var startLocationButton: UIButton!
     @IBOutlet weak var targetLocationButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     
     
     @IBAction func GoToMapView(sender: AnyObject) {
@@ -43,6 +44,8 @@ class SearchViewController: BaseViewController {
         let header = SearchHeaderView()
         header.setup(CGRectMake(0, UIApplication.sharedApplication().statusBarFrame.height, self.view.bounds.width, 50))
         self.view.addSubview(header)
+        
+        searchButton.layer.cornerRadius = 60
     }
     
     override func viewWillAppear(animated: Bool) {
