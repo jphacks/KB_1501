@@ -43,6 +43,7 @@
 		FAE71B241C097F9F00854951 /* SearchedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */; };
 		FAE71B251C097F9F00854951 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B231C097F9F00854951 /* SearchHeaderView.swift */; };
 		FAE71B271C09868E00854951 /* SpotSetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE71B261C09868E00854951 /* SpotSetView.storyboard */; };
+		FAE71B2A1C0991CE00854951 /* SpotOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B291C0991CE00854951 /* SpotOptionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedTableViewCell.swift; path = SearchView/SearchedTableViewCell.swift; sourceTree = "<group>"; };
 		FAE71B231C097F9F00854951 /* SearchHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHeaderView.swift; path = SearchView/SearchHeaderView.swift; sourceTree = "<group>"; };
 		FAE71B261C09868E00854951 /* SpotSetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpotSetView.storyboard; sourceTree = "<group>"; };
+		FAE71B291C0991CE00854951 /* SpotOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotOptionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				B1ADC3FA1C093655005D35A1 /* SearchViewController.swift */,
 				FAE71B231C097F9F00854951 /* SearchHeaderView.swift */,
 				555C69651C09854900D9B656 /* SpotSetViewController */,
+				FAE71B291C0991CE00854951 /* SpotOptionButton.swift */,
 			);
 			name = SearchViewController;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				B1C4CAF91C0974E900543F92 /* ToiletSpotRepository.swift in Sources */,
 				B1C4CAED1C096F6100543F92 /* FilmingLocationSpot.swift in Sources */,
 				FAE71B241C097F9F00854951 /* SearchedTableViewCell.swift in Sources */,
+				FAE71B2A1C0991CE00854951 /* SpotOptionButton.swift in Sources */,
 				55891C161C092F16003B360B /* AppDelegate.swift in Sources */,
 				B1C4CAF71C09748900543F92 /* ToiletSpot.swift in Sources */,
 				555C695D1C09753900D9B656 /* Constants.swift in Sources */,
