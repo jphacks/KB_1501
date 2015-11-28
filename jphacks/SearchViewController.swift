@@ -19,11 +19,18 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var searchButton: UIButton!
 
     let locationManager = CLLocationManager()
+
+    @IBOutlet weak var toiletToggle: SpotOptionButton!
+    @IBOutlet weak var nightSpotsToggle: SpotOptionButton!
+    @IBOutlet weak var monumentsToggle: SpotOptionButton!
+    @IBOutlet weak var structureToggle: SpotOptionButton!
+    @IBOutlet weak var convinienceToggle: SpotOptionButton!
+    @IBOutlet weak var theatersToggle: SpotOptionButton!
     
     @IBAction func GoToMapView(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
-        controller.spots = nightViewSpots
+        controller.spots = SightseengSpots
 
         controller.toLocation = CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude)
         controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
