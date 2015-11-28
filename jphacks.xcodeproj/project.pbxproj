@@ -37,7 +37,7 @@
 		B1C4CAF51C09729800543F92 /* SculptureSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF41C09729800543F92 /* SculptureSpotRepository.swift */; };
 		B1C4CAF71C09748900543F92 /* ToiletSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF61C09748900543F92 /* ToiletSpot.swift */; };
 		B1C4CAF91C0974E900543F92 /* ToiletSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */; };
-		FAE71B1A1C094D9400854951 /* LoacationSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B191C094D9400854951 /* LoacationSetViewController.swift */; };
+		FAE71B1A1C094D9400854951 /* SpotSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B191C094D9400854951 /* SpotSetViewController.swift */; };
 		FAE71B1C1C094DAD00854951 /* LocationSetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */; };
 		FAE71B241C097F9F00854951 /* SearchedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */; };
 		FAE71B251C097F9F00854951 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE71B231C097F9F00854951 /* SearchHeaderView.swift */; };
@@ -97,7 +97,7 @@
 		B1C4CAF41C09729800543F92 /* SculptureSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SculptureSpotRepository.swift; sourceTree = "<group>"; };
 		B1C4CAF61C09748900543F92 /* ToiletSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletSpot.swift; sourceTree = "<group>"; };
 		B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletSpotRepository.swift; sourceTree = "<group>"; };
-		FAE71B191C094D9400854951 /* LoacationSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoacationSetViewController.swift; sourceTree = "<group>"; };
+		FAE71B191C094D9400854951 /* SpotSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotSetViewController.swift; sourceTree = "<group>"; };
 		FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocationSetView.storyboard; sourceTree = "<group>"; };
 		FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchedTableViewCell.swift; path = SearchView/SearchedTableViewCell.swift; sourceTree = "<group>"; };
 		FAE71B231C097F9F00854951 /* SearchHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchHeaderView.swift; path = SearchView/SearchHeaderView.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 				B1ADC3F61C0935DF005D35A1 /* SearchView.storyboard */,
 				FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */,
 				B1ADC3F81C0935FE005D35A1 /* MapView.storyboard */,
-				FAE71B191C094D9400854951 /* LoacationSetViewController.swift */,
+				FAE71B191C094D9400854951 /* SpotSetViewController.swift */,
 				B1ADC3FC1C09368E005D35A1 /* MapViewController.swift */,
 				FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */,
 				FAE71B231C097F9F00854951 /* SearchHeaderView.swift */,
@@ -372,7 +372,7 @@
 				B1C4CAE51C09692300543F92 /* NightViewSpotRepository.swift in Sources */,
 				B1C4CAE91C096C3400543F92 /* SpotManager.swift in Sources */,
 				B1ADC3FD1C09368E005D35A1 /* MapViewController.swift in Sources */,
-				FAE71B1A1C094D9400854951 /* LoacationSetViewController.swift in Sources */,
+				FAE71B1A1C094D9400854951 /* SpotSetViewController.swift in Sources */,
 				B1C4CAD01C093E4E00543F92 /* CSVManager.swift in Sources */,
 				B1C4CAD81C09436B00543F92 /* Spot.swift in Sources */,
 				FAE71B251C097F9F00854951 /* SearchHeaderView.swift in Sources */,

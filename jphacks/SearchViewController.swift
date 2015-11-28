@@ -60,7 +60,7 @@ class SearchViewController: BaseViewController {
     
     @IBAction func SetStartLocation(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
+        let controller = storyboard.instantiateInitialViewController() as! SpotSetViewController
         controller.completion = {(spot:Spot) -> Void in
             SpotManager.startSpot = spot
         }
@@ -69,7 +69,7 @@ class SearchViewController: BaseViewController {
     
     @IBAction func SetTargetLocation(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
+        let controller = storyboard.instantiateInitialViewController() as! SpotSetViewController
         controller.completion = {(spot:Spot) -> Void in
             SpotManager.targetSpot = spot
         }

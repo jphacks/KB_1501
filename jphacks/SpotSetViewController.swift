@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class LocationSetViewController: BaseViewController {
+class SpotSetViewController: BaseViewController {
     
     var spot: Spot!
     var completion: (Spot) -> Void = {_ in }
@@ -41,7 +41,7 @@ class LocationSetViewController: BaseViewController {
     }
 }
 
-extension LocationSetViewController : UISearchBarDelegate  {
+extension SpotSetViewController : UISearchBarDelegate  {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
     }
@@ -54,7 +54,7 @@ extension LocationSetViewController : UISearchBarDelegate  {
     }
 }
 
-extension LocationSetViewController : UITableViewDataSource, UITableViewDelegate {
+extension SpotSetViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! SearchedTableViewCell
