@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: BaseViewController {
     
     @IBAction func NextView(sender: AnyObject) {
         
@@ -18,6 +18,8 @@ class MapViewController: UIViewController {
     
     private let mapView = MKMapView()
     let locationManager = CLLocationManager()
+    
+    let dismissButton: UIButton! = UIButton()
     
     var spots: [Spot] = []
     
@@ -31,12 +33,24 @@ class MapViewController: UIViewController {
             locationManager.requestAlwaysAuthorization()
         }
         
-        mapView.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 150)
+        let statusBarHeight = Util.getStatusBarHeight()
+        mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight)
         if !self.view.subviews.contains(mapView) {
             self.view.addSubview(mapView)
         }
         mapView.delegate = self
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 1000, 1000), animated: true)
+        
+        
+        dismissButton.frame = CGRectMake(30,50, 50,50)
+        dismissButton.layer.cornerRadius = 25
+        dismissButton.setTitle("✕", forState: .Normal)
+        dismissButton.titleLabel?.font = UIFont.systemFontOfSize(30)
+        dismissButton.setTitleColor(Constants.COLOR_DISABLED, forState: .Normal)
+        dismissButton.backgroundColor = Constants.COLOR_WHITE
+        dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
+        self.view.addSubview(dismissButton)
+        
         
         spots.forEach { spot in
             addSpotPin(spot)
@@ -47,6 +61,10 @@ class MapViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func dismiss() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func addSpotPin(spot: Spot) {
@@ -132,8 +150,6 @@ extension MapViewController: CLLocationManagerDelegate {
         // 中心を変更
         mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
         
-        // test, add pin
-        //addPin((manager.location?.coordinate.latitude)!, lon: (manager.location?.coordinate.longitude)!)
         print("\(manager.location?.coordinate.latitude),\(manager.location?.coordinate.longitude)")
     }
     

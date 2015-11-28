@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController {
     
     var SightseengSpots = [SightseeingSpot]()
     var nightViewSpots = [NightViewSpot]()
