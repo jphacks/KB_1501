@@ -100,6 +100,7 @@ extension SpotSetViewController : UITableViewDataSource, UITableViewDelegate {
         } else {
             spot = spots[indexPath.row]
         }
+        
         dismiss()
     }
     
