@@ -11,8 +11,8 @@ class SpotSetViewController: BaseViewController {
     
     var spots: [Spot]!
     var searchedSpots: [Spot]! = nil
-    var spot: Spot!
-    var completion: (Spot) -> Void = {_ in }
+    var spot: Spot?
+    var completion: (Spot?) -> Void = {_ in }
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var seachedTableView: UITableView!
@@ -26,7 +26,6 @@ class SpotSetViewController: BaseViewController {
         seachedTableView.dataSource = self
         seachedTableView.allowsSelection = true
         seachedTableView.allowsMultipleSelection = false
-        spot = Spot(name: "sample", address: "sample", detail: "", latitude: 1, longitude: 1)
         spots = SpotManager.sharedController.spots
     }
     
@@ -52,7 +51,7 @@ extension SpotSetViewController : UISearchBarDelegate  {
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        
+        dismiss()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
