@@ -40,7 +40,6 @@ class SearchViewController: BaseViewController {
             viaLocations.append(CLLocationCoordinate2D(latitude: spot.latitude, longitude: spot.longitude))
         }
         controller.viaLocations = viaLocations
-
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -58,12 +57,6 @@ class SearchViewController: BaseViewController {
         self.view.addSubview(header)
         
         searchButton.layer.cornerRadius = 60
-        
-        let spots = SpotManager.sharedController.toiletSpotRepository.spots
-        for spot in spots {
-            print(spot.name)
-        }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
