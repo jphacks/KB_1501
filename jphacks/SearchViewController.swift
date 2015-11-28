@@ -29,19 +29,11 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
-        let results1 = CSVManager.nightViewData()
-        for result in results1 {
-            nightViewSpots.append(NightViewSpot(result: result))
-            print(nightViewSpots.last?.name)
+        let spots = SpotManager.sharedController.toiletSpotRepository.spots
+        for spot in spots {
+            print(spot.name)
         }
-
         
-        let results2 = CSVManager.sightseeingData()
-        for result in results2 {
-            SightseengSpots.append(SightseeingSpot(result: result))
-            print(SightseengSpots.last?.name)
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
