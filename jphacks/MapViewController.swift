@@ -21,6 +21,8 @@ class MapViewController: BaseViewController {
     var fromLocation: CLLocationCoordinate2D! = nil
     var toLocation: CLLocationCoordinate2D! = nil
     
+    var spotDetailView: SpotDetailView! = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,20 @@ class MapViewController: BaseViewController {
         }
         mapView.delegate = self
         
+        // mapの表示範囲
         fitMapWithSpots(fromLocation, toLocation: toLocation)
+        
+        // 渡されたspotsについてピンを立てる
+        spots.forEach { spot in
+            addSpotPin(spot)
+        }
+        
+        addRoute(self.fromLocation, toCoordinate: self.toLocation)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap")
+        mapView.addGestureRecognizer(tapGestureRecognizer)
+        
+        
         
         
         dismissButton.frame = CGRectMake(30,50, 50,50)
@@ -45,10 +60,13 @@ class MapViewController: BaseViewController {
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
         
-        spots.forEach { spot in
-            addSpotPin(spot)
+        if spotDetailView == nil {
+            spotDetailView = SpotDetailView.create(self)
+            self.view.addSubview(spotDetailView)
         }
-        addRoute(self.fromLocation, toCoordinate: self.toLocation)
+        spotDetailView.setUp(Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
+        spotDetailView.hidden = true
+        
     }
     
     func fitMapWithSpots(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) {
@@ -85,6 +103,10 @@ class MapViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tappedMap() {
+        self.spotDetailView.hidden = true
     }
     
     func dismiss() {
