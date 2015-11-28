@@ -43,6 +43,8 @@ class MapViewController: BaseViewController {
             addSpotPin(spot)
         }
         
+        addRoute(self.fromLocation, toCoordinate: self.toLocation)
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap")
         mapView.addGestureRecognizer(tapGestureRecognizer)
         
@@ -65,9 +67,6 @@ class MapViewController: BaseViewController {
         spotDetailView.setUp(Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
         spotDetailView.hidden = true
         
-        
-        // test, routeを描く
-        addRoute(fromLocation, toCoordinate: toLocation)
     }
     
     func fitMapWithSpots(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) {
