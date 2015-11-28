@@ -27,13 +27,22 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         let spots = SpotManager.sharedController.toiletSpotRepository.spots
         for spot in spots {
             print(spot.name)
         }
+       
         
+        let results2 = CSVManager.sightseeingData()
+        for result in results2 {
+            SightseengSpots.append(SightseeingSpot(result: result))
+            print(SightseengSpots.last?.name)
+        }
+        
+        let header = SearchHeaderView()
+        header.setup(CGRectMake(0, UIApplication.sharedApplication().statusBarFrame.height, self.view.bounds.width, 50))
+        self.view.addSubview(header)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,8 +60,7 @@ class SearchViewController: BaseViewController {
     
     @IBAction func SetStartLocation(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
-        controller.spot = SpotManager.startSpot
+        let controller = storyboard.instantiateInitialViewController() as! SpotSetViewController
         controller.completion = {(spot:Spot) -> Void in
             SpotManager.startSpot = spot
         }
@@ -61,8 +69,7 @@ class SearchViewController: BaseViewController {
     
     @IBAction func SetTargetLocation(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "LocationSetView", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! LocationSetViewController
-        controller.spot = SpotManager.targetSpot
+        let controller = storyboard.instantiateInitialViewController() as! SpotSetViewController
         controller.completion = {(spot:Spot) -> Void in
             SpotManager.targetSpot = spot
         }
