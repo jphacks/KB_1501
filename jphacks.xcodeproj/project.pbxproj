@@ -128,6 +128,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		555C69601C09833C00D9B656 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				555C69641C0984F500D9B656 /* SearchViewController */,
+				B1ADC3FC1C09368E005D35A1 /* MapViewController.swift */,
+				555C695E1C09793000D9B656 /* BaseViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		555C69611C0983C200D9B656 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1C4CAD71C09436B00543F92 /* Spot.swift */,
+				B1C4CAD31C0942BD00543F92 /* NightViewSpot.swift */,
+				B1C4CAD51C0942CE00543F92 /* SightseeingSpot.swift */,
+				B1C4CAEC1C096F6100543F92 /* FilmingLocationSpot.swift */,
+				B1C4CAF21C09722400543F92 /* SculptureSpot.swift */,
+				B1C4CAF61C09748900543F92 /* ToiletSpot.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		555C69621C0983F400D9B656 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B1C4CAE41C09692300543F92 /* NightViewSpotRepository.swift */,
+				B1C4CAE61C0969AF00543F92 /* SightseeingSpotRepository.swift */,
+				B1C4CAEE1C09702B00543F92 /* FilmingLocationSpotRepository.swift */,
+				B1C4CAF41C09729800543F92 /* SculptureSpotRepository.swift */,
+				B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
+		555C69631C09843200D9B656 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B1ADC3F61C0935DF005D35A1 /* SearchView.storyboard */,
+				FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */,
+				B1ADC3F81C0935FE005D35A1 /* MapView.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		555C69641C0984F500D9B656 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1ADC3FA1C093655005D35A1 /* SearchViewController.swift */,
+				FAE71B231C097F9F00854951 /* SearchHeaderView.swift */,
+				555C69651C09854900D9B656 /* SpotSetViewController */,
+			);
+			name = SearchViewController;
+			sourceTree = "<group>";
+		};
+		555C69651C09854900D9B656 /* SpotSetViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAE71B191C094D9400854951 /* SpotSetViewController.swift */,
+				FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */,
+			);
+			name = SpotSetViewController;
+			sourceTree = "<group>";
+		};
 		55891C091C092F16003B360B = {
 			isa = PBXGroup;
 			children = (
@@ -151,23 +215,18 @@
 		55891C141C092F16003B360B /* jphacks */ = {
 			isa = PBXGroup;
 			children = (
-				55891C151C092F16003B360B /* AppDelegate.swift */,
-				B1ADC3F61C0935DF005D35A1 /* SearchView.storyboard */,
-				FAE71B1B1C094DAD00854951 /* LocationSetView.storyboard */,
-				B1ADC3F81C0935FE005D35A1 /* MapView.storyboard */,
-				FAE71B191C094D9400854951 /* SpotSetViewController.swift */,
-				B1ADC3FC1C09368E005D35A1 /* MapViewController.swift */,
-				FAE71B221C097F9F00854951 /* SearchedTableViewCell.swift */,
-				FAE71B231C097F9F00854951 /* SearchHeaderView.swift */,
-				B1ADC3FA1C093655005D35A1 /* SearchViewController.swift */,
-				555C695E1C09793000D9B656 /* BaseViewController.swift */,
+				B1C4CAE81C096C3400543F92 /* SpotManager.swift */,
+				555C69631C09843200D9B656 /* Storyboard */,
+				555C69601C09833C00D9B656 /* ViewController */,
+				555C69611C0983C200D9B656 /* Model */,
+				555C69621C0983F400D9B656 /* Repository */,
 				B1C4CAD91C09466A00543F92 /* CSV */,
+				55891C151C092F16003B360B /* AppDelegate.swift */,
+				555C695A1C09744700D9B656 /* Util.swift */,
+				555C695C1C09753900D9B656 /* Constants.swift */,
 				55891C1C1C092F16003B360B /* Assets.xcassets */,
 				55891C1E1C092F16003B360B /* LaunchScreen.storyboard */,
 				55891C211C092F16003B360B /* Info.plist */,
-				B1C4CACA1C093E0500543F92 /* resource */,
-				555C695A1C09744700D9B656 /* Util.swift */,
-				555C695C1C09753900D9B656 /* Constants.swift */,
 			);
 			path = jphacks;
 			sourceTree = "<group>";
@@ -190,34 +249,15 @@
 			path = jphacksUITests;
 			sourceTree = "<group>";
 		};
-		B1C4CACA1C093E0500543F92 /* resource */ = {
+		B1C4CAD91C09466A00543F92 /* CSV */ = {
 			isa = PBXGroup;
 			children = (
+				B1C4CACF1C093E4E00543F92 /* CSVManager.swift */,
 				B1C4CADB1C09672B00543F92 /* nightView.csv */,
 				B1C4CADD1C09672B00543F92 /* sightseeing.csv */,
 				B1C4CAEA1C096F0500543F92 /* filmingLocationKobe.csv */,
 				B1C4CAF01C09717900543F92 /* sculptureKobecity.csv */,
 				B1C4CADE1C09672B00543F92 /* toilet.csv */,
-			);
-			name = resource;
-			sourceTree = "<group>";
-		};
-		B1C4CAD91C09466A00543F92 /* CSV */ = {
-			isa = PBXGroup;
-			children = (
-				B1C4CAE81C096C3400543F92 /* SpotManager.swift */,
-				B1C4CAE41C09692300543F92 /* NightViewSpotRepository.swift */,
-				B1C4CAE61C0969AF00543F92 /* SightseeingSpotRepository.swift */,
-				B1C4CAEE1C09702B00543F92 /* FilmingLocationSpotRepository.swift */,
-				B1C4CAF41C09729800543F92 /* SculptureSpotRepository.swift */,
-				B1C4CAF81C0974E900543F92 /* ToiletSpotRepository.swift */,
-				B1C4CAD31C0942BD00543F92 /* NightViewSpot.swift */,
-				B1C4CAD51C0942CE00543F92 /* SightseeingSpot.swift */,
-				B1C4CAEC1C096F6100543F92 /* FilmingLocationSpot.swift */,
-				B1C4CAF21C09722400543F92 /* SculptureSpot.swift */,
-				B1C4CAF61C09748900543F92 /* ToiletSpot.swift */,
-				B1C4CAD71C09436B00543F92 /* Spot.swift */,
-				B1C4CACF1C093E4E00543F92 /* CSVManager.swift */,
 			);
 			name = CSV;
 			sourceTree = "<group>";
