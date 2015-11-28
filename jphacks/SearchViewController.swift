@@ -23,6 +23,22 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        /*let results1 = CSVManager.nightViewData()
+        var nightViewSpots = [NightViewSpot]()
+        for result in results1 {
+            nightViewSpots.append(NightViewSpot(result: result))
+            print(nightViewSpots.last?.name)
+        }
+
+        
+        let results2 = CSVManager.sightseeingData()
+        var SightseengSpots = [SightseeingSpot]()
+        for result in results2 {
+            SightseengSpots.append(SightseeingSpot(result: result))
+            print(SightseengSpots.last?.name)
+        }*/
     }
     
     override func viewWillAppear(animated: Bool) {
