@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--Location Set View Controller-->
+        <!--Spot Set View Controller-->
         <scene sceneID="5mh-wA-zcm">
             <objects>
-                <viewController id="1eq-kP-gGX" customClass="LocationSetViewController" customModule="jphacks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1eq-kP-gGX" customClass="SpotSetViewController" customModule="jphacks" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xPg-bm-NAV"/>
                         <viewControllerLayoutGuide type="bottom" id="M6Y-my-1nH"/>
