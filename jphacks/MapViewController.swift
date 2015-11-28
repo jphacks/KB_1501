@@ -18,6 +18,10 @@ class MapViewController: BaseViewController {
     
     var spots: [Spot] = []
     
+    var fromLocation: CLLocationCoordinate2D! = nil
+    var toLocation: CLLocationCoordinate2D! = nil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,7 +32,35 @@ class MapViewController: BaseViewController {
             self.view.addSubview(mapView)
         }
         mapView.delegate = self
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 1000, 1000), animated: true)
+        
+        // fromLocation, toLocationに基いてmapの表示範囲を設定
+        // 現在地と目的地を含む矩形を計算
+        let maxLat: Double
+        let minLat: Double
+        let maxLon: Double
+        let minLon: Double
+        if fromLocation.latitude > toLocation.latitude {
+            maxLat = fromLocation.latitude
+            minLat = toLocation.latitude
+        } else {
+            maxLat = toLocation.latitude
+            minLat = fromLocation.latitude
+        }
+        if fromLocation.longitude > toLocation.longitude {
+            maxLon = fromLocation.longitude
+            minLon = toLocation.longitude
+        } else {
+            maxLon = toLocation.longitude
+            minLon = fromLocation.longitude
+        }
+        
+        let center = CLLocationCoordinate2DMake((maxLat + minLat) / 2, (maxLon + minLon) / 2)
+        
+        let mapMargin:Double = 1.5;  // 経路が入る幅(1.0)＋余白(0.5)
+        let leastCoordSpan:Double = 0.005;    // 拡大表示したときの最大値
+        let span = MKCoordinateSpanMake(fmax(leastCoordSpan, fabs(maxLat - minLat) * mapMargin), fmax(leastCoordSpan, fabs(maxLon - minLon) * mapMargin))
+        
+        mapView.setRegion(mapView.regionThatFits(MKCoordinateRegionMake(center, span)), animated: true)
         
         
         dismissButton.frame = CGRectMake(30,50, 50,50)
@@ -39,9 +71,6 @@ class MapViewController: BaseViewController {
         dismissButton.backgroundColor = Constants.COLOR_WHITE
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
-        
-        
-        //mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
         
         
         spots.forEach { spot in
