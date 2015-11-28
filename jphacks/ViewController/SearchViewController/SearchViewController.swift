@@ -11,8 +11,11 @@ import CoreLocation
 
 class SearchViewController: BaseViewController {
     
-    var SightseengSpots = [SightseeingSpot]()
+    var sightseengSpots = [SightseeingSpot]()
     var nightViewSpots = [NightViewSpot]()
+    var filmingLocationSpots = [FilmingLocationSpot]()
+    var sculptureSpot = [SculptureSpot]()
+    var toiletSpot = [ToiletSpot]()
 
     @IBOutlet weak var startLocationButton: UIButton!
     @IBOutlet weak var targetLocationButton: UIButton!
@@ -30,8 +33,11 @@ class SearchViewController: BaseViewController {
     @IBAction func GoToMapView(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
-        controller.spots = SightseengSpots
-        
+
+        //setSpotsData(controller)
+
+        controller.spots = sightseengSpots
+    
         var viaLocations: [CLLocationCoordinate2D] = []
         if let spot = SpotManager.startSpot {
             viaLocations.append(CLLocationCoordinate2D(latitude: spot.latitude, longitude: spot.longitude))
@@ -48,7 +54,6 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // 位置情報に関して権限をもらう
         locationManager.delegate = self
         let status = CLLocationManager.authorizationStatus()
@@ -63,8 +68,8 @@ class SearchViewController: BaseViewController {
         
         let results2 = CSVManager.sightseeingData()
         for result in results2 {
-            SightseengSpots.append(SightseeingSpot(result: result))
-            print(SightseengSpots.last?.name)
+            sightseengSpots.append(SightseeingSpot(result: result))
+            print(sightseengSpots.last?.name)
         }
         
         let header = SearchHeaderView()
@@ -103,6 +108,12 @@ class SearchViewController: BaseViewController {
             SpotManager.targetSpot = spot
         }
         self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func setSpotsData(controller:MapViewController){
+        controller.spots = sightseengSpots
+        //controller.toLocation = CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude)
+        //controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
     }
 }
 
