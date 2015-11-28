@@ -14,6 +14,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXP-g3-jpI">
                     <rect key="frame" x="21" y="40" width="118" height="118"/>
                     <animations/>
+                    <color key="backgroundColor" red="1" green="0.091244999678871008" blue="0.18330871942333915" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="神戸タワー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JnZ-bk-kvD">
                     <rect key="frame" x="183" y="50" width="176" height="41"/>
@@ -29,7 +30,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="神戸タワーは、ｆｄさｆｄｓ ｆｄさｆｄさ ｆｄｓｇｆｄｓｇｆｄｋｓ ｆｄｓぁｇｆｄｓｇｋｆｄそｇｆｄ ｇｆｄｓ；ｇｋふぉｄｋそｇｋｆｄｓfdsakopfさｊｇふぃｄｓｊぎおｓｄｊぎおｆｄｓｊごｓｄ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9UX-sC-KCJ">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="神戸タワーは、ｆｄさｆｄｓ ｆｄさｆｄさ ｆｄｓｇｆｄｓｇｆｄｋｓ ｆｄｓぁｇｆｄｓｇｋｆｄそｇｆｄ ｇｆｄｓ；ｇｋふぉｄｋそｇｋｆｄｓfdsakopfさｊｇふぃｄｓｊぎおｓｄｊぎおｆｄｓｊごｓｄ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9UX-sC-KCJ">
                     <rect key="frame" x="21" y="177" width="371" height="124"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,7 +39,7 @@
                 </textView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="descriptionView" destination="9UX-sC-KCJ" id="9Gk-FF-aLe"/>

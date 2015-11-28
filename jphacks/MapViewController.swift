@@ -21,6 +21,8 @@ class MapViewController: BaseViewController {
     var fromLocation: CLLocationCoordinate2D! = nil
     var toLocation: CLLocationCoordinate2D! = nil
     
+    var spotDetailView: SpotDetailView! = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +47,21 @@ class MapViewController: BaseViewController {
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
         
-        
+        // 渡されたspotsについてピンを立てる
         spots.forEach { spot in
             addSpotPin(spot)
         }
-        addRoute(CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644), toCoordinate: CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512))
+        
+        if spotDetailView == nil {
+            spotDetailView = SpotDetailView.create(self)
+            self.view.addSubview(spotDetailView)
+        }
+        spotDetailView.setUp(Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
+        spotDetailView.hidden = true
+        
+        
+        // test, routeを描く
+        addRoute(fromLocation, toCoordinate: toLocation)
     }
     
     func fitMapWithSpots(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) {

@@ -15,6 +15,17 @@ class SpotDetailView: UIView {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var descriptionView: UITextView!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    class func create(owner: AnyObject?) -> SpotDetailView {
+        return UINib(nibName: "SpotDetailView", bundle: NSBundle.mainBundle()).instantiateWithOwner(owner, options: nil).first as! SpotDetailView
+    }
     
     func setUp(spot: Spot) {
         self.nameLabel.text = spot.name
