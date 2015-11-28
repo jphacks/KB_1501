@@ -19,9 +19,7 @@ class MapViewController: UIViewController {
     let mapView = MKMapView()
     let locationManager = CLLocationManager()
     
-    func setSpots(spots: [Spot]) {
-        
-    }
+    var spots: [Spot] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +36,11 @@ class MapViewController: UIViewController {
             self.view.addSubview(mapView)
         }
         mapView.delegate = self
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 100, 100), animated: true)
+        mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 1000, 1000), animated: true)
+        
+        spots.forEach { spot in
+            addSpotPin(spot)
+        }
     }
     
     override func didReceiveMemoryWarning() {

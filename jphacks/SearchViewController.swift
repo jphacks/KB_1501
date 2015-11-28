@@ -10,9 +10,13 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    var SightseengSpots = [SightseeingSpot]()
+    var nightViewSpots = [NightViewSpot]()
+    
     @IBAction func GoToMapView(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
+        controller.spots = nightViewSpots
         // controller.delegate = self;
         // controller.checkout = self.checkout;
         self.presentViewController(controller, animated: true, completion: nil)
@@ -22,7 +26,7 @@ class SearchViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         let results1 = CSVManager.nightViewData()
-        var nightViewSpots = [NightViewSpot]()
+        
         for result in results1 {
             nightViewSpots.append(NightViewSpot(result: result))
             print(nightViewSpots.last?.name)
@@ -30,7 +34,6 @@ class SearchViewController: UIViewController {
 
         
         let results2 = CSVManager.sightseeingData()
-        var SightseengSpots = [SightseeingSpot]()
         for result in results2 {
             SightseengSpots.append(SightseeingSpot(result: result))
             print(SightseengSpots.last?.name)
