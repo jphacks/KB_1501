@@ -21,9 +21,10 @@ class SearchedTableViewCell : UITableViewCell {
             label.backgroundColor = UIColor.whiteColor()
             self.addSubview(label)
         }
-        let labelHeight: CGFloat = 60
+        let labelHeight: CGFloat = 40
         let labelWidth: CGFloat = self.bounds.width-50
         label.frame = CGRectMake((self.bounds.width-labelWidth)/2, (self.bounds.height - labelHeight)/2, labelWidth, labelHeight)
         label.text = title
     }
+    
 }
