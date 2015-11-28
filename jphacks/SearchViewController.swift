@@ -17,23 +17,19 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var targetLocationButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     
-    
     @IBAction func GoToMapView(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
         controller.spots = nightViewSpots
-
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         let spots = SpotManager.sharedController.toiletSpotRepository.spots
         for spot in spots {
             print(spot.name)
         }
-       
         
         let results2 = CSVManager.sightseeingData()
         for result in results2 {
@@ -76,7 +72,6 @@ class SearchViewController: BaseViewController {
         controller.completion = {(spot:Spot) -> Void in
             SpotManager.targetSpot = spot
         }
-
         self.presentViewController(controller, animated: true, completion: nil)
     }
 }
