@@ -33,10 +33,6 @@ class SpotSetViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func dismissView(sender: AnyObject) {
-        dismiss()
-    }
-    
     func dismiss(){
         completion(spot)
         self.dismissViewControllerAnimated(true, completion: nil)
