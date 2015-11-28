@@ -23,10 +23,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  startLocation = Location()
-      //  targetLocation = Location()
-        /*startLocation.addObserver(self, forKeyPath: "latitude", options: .New, context: nil)
-        targetLocation.addObserver(self, forKeyPath: "latitude", options: .New, context: nil)*/
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,14 +31,11 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
-      /*  startLocation.removeObserver(self, forKeyPath: "latitude", context: nil)
-        targetLocation.removeObserver(self, forKeyPath: "latitude", context: nil)*/
         super.viewWillDisappear(animated)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func SetStartLocation(sender: AnyObject) {
@@ -58,20 +51,4 @@ class SearchViewController: UIViewController {
         controller.location = SpotManager.targetLocation
         self.presentViewController(controller, animated: true, completion: nil)
     }
- /*   override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
-        startLocationButton.setTitle(startLocation.locationName, forState: .Normal)
-        targetLocationButton.setTitle(targetLocation.locationName, forState: .Normal)
-        
-    }*/
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }

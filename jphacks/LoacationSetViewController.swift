@@ -7,10 +7,6 @@
 //
 import UIKit
 
-/*protocol LocationSetterDelegate {
-    func 
-}*/
-
 class LocationSetViewController: UIViewController {
     
     var location: Location!
