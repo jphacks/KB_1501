@@ -29,18 +29,25 @@ class MapViewController: UIViewController {
             locationManager.requestAlwaysAuthorization()
         }
         
-        
         mapView.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 150)
-        self.view.addSubview(mapView)
+        if !self.view.subviews.contains(mapView) {
+            self.view.addSubview(mapView)
+        }
         mapView.delegate = self
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.506804, 139.930531), 100, 100), animated: true)
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addPin(lat: Double, lon: Double) {
+        let pin = MKPointAnnotation()
+        pin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(lat), CLLocationDegrees(lon))
+        pin.title = "title"
+        pin.subtitle = "sub title"
+        mapView.addAnnotation(pin)
     }
 }
 
@@ -63,13 +70,13 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
     
+    // 位置情報がupdateされた時
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), 100, 100), animated: true)
     }
     
-    
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("error")
+        print(error)
     }
 }
 
