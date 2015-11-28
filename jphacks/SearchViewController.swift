@@ -7,6 +7,7 @@
 //
 import Foundation
 import UIKit
+import CoreLocation
 
 class SearchViewController: BaseViewController {
     
@@ -15,6 +16,8 @@ class SearchViewController: BaseViewController {
 
     @IBOutlet weak var startLocationButton: UIButton!
     @IBOutlet weak var targetLocationButton: UIButton!
+    
+    let locationManager = CLLocationManager()
     
     
     @IBAction func GoToMapView(sender: AnyObject) {
@@ -27,7 +30,14 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        let status = CLLocationManager.authorizationStatus()
+        if(status == CLAuthorizationStatus.NotDetermined) {
+            locationManager.requestAlwaysAuthorization()
+        }
+        
+        
         let spots = SpotManager.sharedController.toiletSpotRepository.spots
         for spot in spots {
             print(spot.name)
@@ -77,3 +87,34 @@ class SearchViewController: BaseViewController {
         self.presentViewController(controller, animated: true, completion: nil)
     }
 }
+
+
+extension SearchViewController: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        switch (status) {
+        case .NotDetermined:
+            print("NotDetermined")
+        case .Restricted:
+            print("Restricted")
+        case .Denied:
+            print("Denied")
+        case .AuthorizedAlways:
+            print("AuthorizedAlways")
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest// 取得精度の設定.
+            locationManager.distanceFilter = 1// 取得頻度の設定.
+            locationManager.startUpdatingLocation()
+        case .AuthorizedWhenInUse:
+            print("AuthorizedWhenInUse")
+        }
+    }
+    
+    // 位置情報がupdateされた時
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("\(manager.location?.coordinate.latitude),\(manager.location?.coordinate.longitude)")
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
+    }
+}
+

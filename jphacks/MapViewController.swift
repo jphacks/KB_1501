@@ -12,12 +12,7 @@ import CoreLocation
 
 class MapViewController: BaseViewController {
     
-    @IBAction func NextView(sender: AnyObject) {
-        
-    }
-    
     private let mapView = MKMapView()
-    let locationManager = CLLocationManager()
     
     let dismissButton: UIButton! = UIButton()
     
@@ -26,12 +21,6 @@ class MapViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        locationManager.delegate = self
-        let status = CLLocationManager.authorizationStatus()
-        if(status == CLAuthorizationStatus.NotDetermined) {
-            locationManager.requestAlwaysAuthorization()
-        }
         
         let statusBarHeight = Util.getStatusBarHeight()
         mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight)
@@ -50,6 +39,9 @@ class MapViewController: BaseViewController {
         dismissButton.backgroundColor = Constants.COLOR_WHITE
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
+        
+        
+        //mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
         
         
         spots.forEach { spot in
@@ -123,38 +115,6 @@ class MapViewController: BaseViewController {
     // tapをおいたとき用
     func getLocationFromTap(sender: UILongPressGestureRecognizer) -> CLLocationCoordinate2D {
         return self.mapView.convertPoint(sender.locationInView(mapView), toCoordinateFromView: mapView)
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        switch (status) {
-        case .NotDetermined:
-            print("NotDetermined")
-        case .Restricted:
-            print("Restricted")
-        case .Denied:
-            print("Denied")
-        case .AuthorizedAlways:
-            print("AuthorizedAlways")
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest// 取得精度の設定.
-            locationManager.distanceFilter = 1// 取得頻度の設定.
-            locationManager.startUpdatingLocation()
-        case .AuthorizedWhenInUse:
-            print("AuthorizedWhenInUse")
-        }
-    }
-    
-    // 位置情報がupdateされた時
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // 中心を変更
-        mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
-        
-        print("\(manager.location?.coordinate.latitude),\(manager.location?.coordinate.longitude)")
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print(error)
     }
 }
 
