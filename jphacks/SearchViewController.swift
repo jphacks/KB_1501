@@ -104,7 +104,7 @@ class SearchViewController: BaseViewController {
     func setSpotsData(controller:MapViewController){
         controller.spots = sightseengSpots
         //controller.toLocation = CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude)
-        //    controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
+        //controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
     }
 }
 

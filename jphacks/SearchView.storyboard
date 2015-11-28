@@ -153,6 +153,7 @@
                         <outlet property="structureToggle" destination="M0n-PA-gbx" id="OTD-dm-1ed"/>
                         <outlet property="targetLocationButton" destination="LUD-eb-VXd" id="ghM-wI-PUl"/>
                         <outlet property="theatersToggle" destination="N6i-ji-KK5" id="kTU-eY-waY"/>
+                        <outlet property="toiletToggle" destination="vt3-UX-TSz" id="lhR-SB-krF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VD2-TX-036" userLabel="First Responder" sceneMemberID="firstResponder"/>
