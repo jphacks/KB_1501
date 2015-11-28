@@ -35,7 +35,18 @@ class MapViewController: BaseViewController {
         }
         mapView.delegate = self
         
+        // mapの表示範囲
         fitMapWithSpots(fromLocation, toLocation: toLocation)
+        
+        // 渡されたspotsについてピンを立てる
+        spots.forEach { spot in
+            addSpotPin(spot)
+        }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap")
+        mapView.addGestureRecognizer(tapGestureRecognizer)
+        
+        
         
         
         dismissButton.frame = CGRectMake(30,50, 50,50)
@@ -46,11 +57,6 @@ class MapViewController: BaseViewController {
         dismissButton.backgroundColor = Constants.COLOR_WHITE
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
-        
-        // 渡されたspotsについてピンを立てる
-        spots.forEach { spot in
-            addSpotPin(spot)
-        }
         
         if spotDetailView == nil {
             spotDetailView = SpotDetailView.create(self)
@@ -98,6 +104,10 @@ class MapViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tappedMap() {
+        self.spotDetailView.hidden = true
     }
     
     func dismiss() {
