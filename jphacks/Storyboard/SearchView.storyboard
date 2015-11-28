@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K4d-Og-TSJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="K4d-Og-TSJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="NSL-Ec-wkf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fkl-ky-OYl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10b-yQ-XCF">
-                                <rect key="frame" x="92" y="98" width="273" height="40"/>
+                                <rect key="frame" x="72" y="96" width="273" height="40"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUD-eb-VXd">
-                                <rect key="frame" x="92" y="159" width="273" height="38"/>
+                                <rect key="frame" x="72" y="159" width="273" height="38"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="出発" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86p-D6-mNE">
-                                <rect key="frame" x="50" y="98" width="43" height="40"/>
+                                <rect key="frame" x="30" y="96" width="43" height="40"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -52,23 +52,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="到着" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cs-uU-AQw">
-                                <rect key="frame" x="50" y="159" width="43" height="38"/>
+                                <rect key="frame" x="30" y="159" width="43" height="38"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blS-VY-ljn" userLabel="SearchButton">
-                                <rect key="frame" x="141" y="564" width="133" height="133"/>
-                                <animations/>
-                                <state key="normal" image="search_button"/>
-                                <connections>
-                                    <action selector="GoToMapView:" destination="K4d-Og-TSJ" eventType="touchUpInside" id="nW9-Ma-7d9"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt3-UX-TSz" userLabel="ToiletToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="50" y="365" width="64" height="64"/>
+                                <rect key="frame" x="30" y="365" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="off-1"/>
@@ -79,7 +71,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEx-pE-X6F" userLabel="NightSpotToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="139" y="278" width="64" height="64"/>
+                                <rect key="frame" x="119" y="278" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="off-2"/>
@@ -90,7 +82,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYE-Nh-R29" userLabel="MonumentsToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="219" y="278" width="64" height="64"/>
+                                <rect key="frame" x="199" y="278" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="off-3"/>
@@ -101,7 +93,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0n-PA-gbx" userLabel="StructuresToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="301" y="278" width="64" height="64"/>
+                                <rect key="frame" x="281" y="278" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="off-5"/>
@@ -112,7 +104,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpx-1L-aF6" userLabel="ConvinienceToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="50" y="278" width="64" height="64"/>
+                                <rect key="frame" x="30" y="278" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="off-6"/>
@@ -123,7 +115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6i-ji-KK5" userLabel="TheaterToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="139" y="365" width="64" height="64"/>
+                                <rect key="frame" x="119" y="365" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="off-4"/>
@@ -134,17 +126,25 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipz-jW-5Uj">
-                                <rect key="frame" x="50" y="240" width="53" height="30"/>
+                                <rect key="frame" x="36" y="240" width="53" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blS-VY-ljn" userLabel="SearchButton">
+                                <rect key="frame" x="119" y="497" width="133" height="133"/>
+                                <animations/>
+                                <state key="normal" image="search_button"/>
+                                <connections>
+                                    <action selector="GoToMapView:" destination="K4d-Og-TSJ" eventType="touchUpInside" id="nW9-Ma-7d9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="ToiletToggle" destination="vt3-UX-TSz" id="FSk-et-z2e"/>
                         <outlet property="convinienceToggle" destination="Mpx-1L-aF6" id="CiW-Hd-NEa"/>

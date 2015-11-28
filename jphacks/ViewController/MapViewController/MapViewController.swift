@@ -58,15 +58,14 @@ class MapViewController: BaseViewController {
         // mapをタップしたら詳細が消えるようにrecognizerを追加
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap")
         mapView.addGestureRecognizer(tapGestureRecognizer)
-        
-        
-        
+
         // 閉じるボタン
         dismissButton.frame = CGRectMake(30,50, 50,50)
         dismissButton.layer.cornerRadius = 25
         dismissButton.setTitle("✕", forState: .Normal)
         dismissButton.titleLabel?.font = UIFont.systemFontOfSize(30)
         dismissButton.setTitleColor(Constants.COLOR_DISABLED, forState: .Normal)
+        dismissButton.setTitleColor(Constants.COLOR_WHITE, forState: .Highlighted)
         dismissButton.backgroundColor = Constants.COLOR_WHITE
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
