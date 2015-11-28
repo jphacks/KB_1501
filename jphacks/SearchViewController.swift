@@ -31,7 +31,6 @@ class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         let results1 = CSVManager.nightViewData()
-        var nightViewSpots = [NightViewSpot]()
         for result in results1 {
             nightViewSpots.append(NightViewSpot(result: result))
             print(nightViewSpots.last?.name)

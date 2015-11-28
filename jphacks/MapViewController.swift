@@ -133,7 +133,7 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setCenterCoordinate(CLLocationCoordinate2DMake((manager.location?.coordinate.latitude)!, (manager.location?.coordinate.longitude)!), animated: true)
         
         // test, add pin
-        addPin((manager.location?.coordinate.latitude)!, lon: (manager.location?.coordinate.longitude)!)
+        //addPin((manager.location?.coordinate.latitude)!, lon: (manager.location?.coordinate.longitude)!)
         print("\(manager.location?.coordinate.latitude),\(manager.location?.coordinate.longitude)")
     }
     
@@ -149,7 +149,6 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     // 経路を描画するときの色や線の太さを指定
-    
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolyline {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
