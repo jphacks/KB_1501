@@ -10,6 +10,7 @@ import UIKit
 class SpotSetViewController: BaseViewController {
     
     var spots: [Spot]!
+    var searchedSpots: [Spot]! = nil
     var spot: Spot!
     var completion: (Spot) -> Void = {_ in }
 
@@ -46,13 +47,26 @@ class SpotSetViewController: BaseViewController {
 extension SpotSetViewController : UISearchBarDelegate  {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterContainsWithSearchText(searchText)
+        self.seachedTableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.view.endEditing(true)
+    }
+    
+    func filterContainsWithSearchText(searchText: String) {
+        if searchText == "" {
+            return searchedSpots = nil
+        }
+        searchedSpots = spots.filter { spot -> Bool in
+            return spot.name.rangeOfString(searchText) != nil
+        }
+        
     }
 }
 
@@ -60,16 +74,24 @@ extension SpotSetViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! SearchedTableViewCell
-        cell.setup(spots[indexPath.row].name)
+        if searchedSpots != nil {
+            cell.setup(searchedSpots[indexPath.row].name)
+        } else {
+            cell.setup(spots[indexPath.row].name)
+        }
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return spots.count
+        if searchedSpots != nil {
+            return self.searchedSpots.count
+        }
+        return self.spots.count
+
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return 50
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
