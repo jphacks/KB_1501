@@ -45,11 +45,10 @@ class MapViewController: BaseViewController {
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
         
-        
         spots.forEach { spot in
             addSpotPin(spot)
         }
-        addRoute(CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644), toCoordinate: CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512))
+        addRoute(self.fromLocation, toCoordinate: self.toLocation)
     }
     
     func fitMapWithSpots(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) {

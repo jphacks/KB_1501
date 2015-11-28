@@ -20,15 +20,13 @@ class SearchViewController: BaseViewController {
 
     let locationManager = CLLocationManager()
     
-
-    
     @IBAction func GoToMapView(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
         controller.spots = nightViewSpots
 
-        controller.toLocation = CLLocationCoordinate2D(latitude:34.6944022737767, longitude: 135.195888597644)
-        controller.fromLocation = CLLocationCoordinate2D(latitude: 34.709759, longitude: 135.248512)
+        controller.toLocation = CLLocationCoordinate2D(latitude: SpotManager.targetSpot.latitude, longitude: SpotManager.targetSpot.longitude)
+        controller.fromLocation = CLLocationCoordinate2D(latitude: SpotManager.startSpot.latitude, longitude: SpotManager.startSpot.longitude)
 
         self.presentViewController(controller, animated: true, completion: nil)
     }
