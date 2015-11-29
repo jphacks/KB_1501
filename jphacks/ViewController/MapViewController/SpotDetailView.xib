@@ -37,6 +37,9 @@
                             <rect key="frame" x="44" y="18" width="59" height="70"/>
                             <animations/>
                             <state key="normal" image="add"/>
+                            <connections>
+                                <action selector="addRoute:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Ch-Cy-6Id"/>
+                            </connections>
                         </button>
                     </subviews>
                     <animations/>

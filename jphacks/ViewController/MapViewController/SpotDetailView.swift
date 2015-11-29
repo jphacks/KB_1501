@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SpotDetailView: UIView {
     
@@ -15,8 +16,13 @@ class SpotDetailView: UIView {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var descriptionView: UITextView!
     @IBOutlet weak var whiteView: UIView!
+    weak var mapViewController: MapViewController!
     
     var currentSpot: Spot! = nil
+    
+    @IBAction func addRoute(sender: AnyObject) {
+        mapViewController.insertViaLocation(CLLocationCoordinate2D((latitude: currentSpot.latitude, longitude: currentSpot.longitude)))
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
