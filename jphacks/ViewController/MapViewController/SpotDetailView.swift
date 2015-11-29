@@ -34,7 +34,10 @@ class SpotDetailView: UIView {
         self.genreLabel.text = spot.address
         self.genreLabel.textColor = Constants.COLOR_WHITE
         
-        self.descriptionView.text = spot.detail
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSParagraphStyleAttributeName : style]
+        self.descriptionView.attributedText = NSAttributedString(string: spot.detail, attributes: attributes)
         self.descriptionView.editable = false
         
         self.backgroundColor = Constants.COLOR_LIGHT_GREEN

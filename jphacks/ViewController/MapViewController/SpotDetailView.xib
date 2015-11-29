@@ -26,8 +26,8 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1E2-8Y-94g">
                     <rect key="frame" x="0.0" y="140" width="375" height="105"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="aaa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xfi-oE-cOx">
-                            <rect key="frame" x="15" y="0.0" width="360" height="105"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xfi-oE-cOx">
+                            <rect key="frame" x="15" y="0.0" width="352" height="105"/>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -55,7 +55,7 @@
                 <outlet property="nameLabel" destination="JnZ-bk-kvD" id="t1G-wb-KE4"/>
                 <outlet property="whiteView" destination="1E2-8Y-94g" id="66f-Pu-Qcc"/>
             </connections>
-            <point key="canvasLocation" x="441.5" y="318.5"/>
+            <point key="canvasLocation" x="324.5" y="363.5"/>
         </view>
     </objects>
 </document>
