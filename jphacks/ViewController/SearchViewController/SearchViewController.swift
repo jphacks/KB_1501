@@ -30,31 +30,43 @@ class SearchViewController: BaseViewController {
     
     
     @IBAction func GoToMapView(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "MapView", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! MapViewController
-
-        controller.spots = SpotManager.sharedController.sightseeingSpotRepository.spots
+        var spots: [Spot] = SpotManager.sharedController.sightseeingSpotRepository.spots
         if toiletToggle.hilightened {
-            controller.spots += SpotManager.sharedController.toiletSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.toiletSpotRepository.spots as [Spot]
         }
         if nightSpotsToggle.hilightened {
-            controller.spots += SpotManager.sharedController.nightViewSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.nightViewSpotRepository.spots as [Spot]
         }
         if monumentsToggle.hilightened {
-            controller.spots += SpotManager.sharedController.sculptureSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.sculptureSpotRepository.spots as [Spot]
         }
         if theatersToggle.hilightened {
-            controller.spots += SpotManager.sharedController.filmingLocationSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.filmingLocationSpotRepository.spots as [Spot]
         }
+        
         var viaLocations: [CLLocationCoordinate2D] = []
         if let spot = SpotManager.startSpot {
             viaLocations.append(CLLocationCoordinate2D(latitude: spot.latitude, longitude: spot.longitude))
         } else {
-            viaLocations.append(locationManager.location!.coordinate)
+            if let coordinate = locationManager.location?.coordinate {
+                viaLocations.append(coordinate)
+            } else {
+                let alertViewController = UIAlertController(title: "現在地", message: "位置情報を取得できません", preferredStyle: UIAlertControllerStyle.Alert)
+                self.presentViewController(alertViewController, animated: true, completion: { dispatch_after(2, dispatch_get_main_queue(), {self.dismissViewControllerAnimated(true, completion: nil)}) })
+                return
+            }
         }
         if let spot = SpotManager.targetSpot {
             viaLocations.append(CLLocationCoordinate2D(latitude: spot.latitude, longitude: spot.longitude))
+        } else {
+            let alertViewController = UIAlertController(title: "未入力", message: "目的地を設定", preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(alertViewController, animated: true, completion: { dispatch_after(2, dispatch_get_main_queue(), {self.dismissViewControllerAnimated(true, completion: nil)}) })
+            return
         }
+        
+        let storyboard = UIStoryboard(name: "MapView", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController() as! MapViewController
+        controller.spots = spots
         controller.viaLocations = viaLocations
         self.presentViewController(controller, animated: true, completion: nil)
     }
