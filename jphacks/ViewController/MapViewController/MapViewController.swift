@@ -26,13 +26,16 @@ class MapViewController: BaseViewController {
     // 詳細を上に表示
     var spotDetailView: SpotDetailView! = nil
     
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var needTimeLabel: UILabel!
+    @IBOutlet weak var postTweetButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let statusBarHeight = Util.getStatusBarHeight()
-        mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight)
+        mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight - 70)
         if !self.view.subviews.contains(mapView) {
             self.view.addSubview(mapView)
         }
@@ -72,11 +75,12 @@ class MapViewController: BaseViewController {
         spotDetailView.setUp(self.spots.first ?? Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
         spotDetailView.hidden = true
         
-        let tweetButton: UIButton = UIButton(frame: CGRectMake(300,100,100,100))
+        /*let tweetButton: UIButton = UIButton(frame: CGRectMake(300,100,100,100))
         tweetButton.backgroundColor = UIColor.whiteColor()
         tweetButton.addTarget(self, action: "PostTweet", forControlEvents: .TouchUpInside)
         tweetButton.setTitle("Tweet", forState: .Normal)
-        self.view.addSubview(tweetButton)
+        self.view.addSubview(tweetButton)*/
+        postTweetButton.addTarget(self, action: "PostTweet", forControlEvents: .TouchUpInside)
     }
     
     func getDist(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) -> Double {
@@ -170,9 +174,10 @@ class MapViewController: BaseViewController {
     }
     
     func addSpotPin(spot: Spot) {
-        let pin = MKPointAnnotation()
+        let pin = SpotPinAnnotation()
         pin.title = spot.name
         pin.subtitle = spot.detail
+        pin.spot = spot
         pin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(spot.latitude), CLLocationDegrees(spot.longitude))
         
         mapView.addAnnotation(pin)
@@ -273,14 +278,15 @@ extension MapViewController: MKMapViewDelegate {
     //
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         print(view.annotation?.title)
-        spotDetailView.setUp(Spot(name: view.annotation!.title!!, address: "", detail: view.annotation!.subtitle!!, latitude: 135, longitude: 35))
+        spotDetailView.setUp((view.annotation as! SpotPinAnnotation).spot)
         spotDetailView.hidden = false
     }
     
     func PostTweet() {
         let tweetView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         tweetView.setInitialText("よりみち")
-        tweetView.addImage(self.view.GetImage() as UIImage)
+        //tweetView.addImage(self.view.GetImage() as UIImage)
+        tweetView.addImage(self.mapView.GetImage() as UIImage)
         self.presentViewController(tweetView, animated: true, completion: nil)
     }
 }
