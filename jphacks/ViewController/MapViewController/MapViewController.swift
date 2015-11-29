@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Social
 
 class MapViewController: BaseViewController {
     
@@ -70,6 +71,12 @@ class MapViewController: BaseViewController {
         }
         spotDetailView.setUp(self.spots.first ?? Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
         spotDetailView.hidden = true
+        
+        let tweetButton: UIButton = UIButton(frame: CGRectMake(300,100,100,100))
+        tweetButton.backgroundColor = UIColor.whiteColor()
+        tweetButton.addTarget(self, action: "PostTweet", forControlEvents: .TouchUpInside)
+        tweetButton.setTitle("Tweet", forState: .Normal)
+        self.view.addSubview(tweetButton)
     }
     
     func getDist(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) -> Double {
@@ -268,5 +275,11 @@ extension MapViewController: MKMapViewDelegate {
         print("callout tapped2")
         spotDetailView.hidden = false
     }
-
+    
+    func PostTweet() {
+        let tweetView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        tweetView.setInitialText("よりみち")
+        tweetView.addImage(self.view.GetImage() as UIImage)
+        self.presentViewController(tweetView, animated: true, completion: nil)
+    }
 }
