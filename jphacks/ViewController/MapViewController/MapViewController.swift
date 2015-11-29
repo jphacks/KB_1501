@@ -144,7 +144,6 @@ class MapViewController: BaseViewController {
     }
     
     func tappedMap(sender: UIGestureRecognizer?) {
-        self.spotDetailView.hidden = true
         
         // タップした位置にpinをおく&ルートとしてよる
         
@@ -231,9 +230,9 @@ class MapViewController: BaseViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    // Regionが変更された時に呼び出されるメソッド.
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("regionDidChangeAnimated")
+    // マップが移動した時
+    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        self.spotDetailView?.hidden = true
     }
     
     // 経路を描画するときの色や線の太さを指定
@@ -271,8 +270,10 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
+    //
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        print("callout tapped2")
+        print(view.annotation?.title)
+        spotDetailView.setUp(Spot(name: view.annotation!.title!!, address: "", detail: view.annotation!.subtitle!!, latitude: 135, longitude: 35))
         spotDetailView.hidden = false
     }
     

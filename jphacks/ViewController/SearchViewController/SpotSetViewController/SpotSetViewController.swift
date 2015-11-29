@@ -39,7 +39,9 @@ class SpotSetViewController: BaseViewController {
     }
     
     func dismiss(){
-        completion(spot)
+        if spot != nil {
+            completion(spot)
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
