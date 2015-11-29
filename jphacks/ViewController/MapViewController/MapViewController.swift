@@ -16,10 +16,13 @@ class MapViewController: BaseViewController {
     
     let dismissButton: UIButton! = UIButton()
     
+    // pinを立てるやつたち
     var spots: [Spot] = []
     
+    // 経路として通る点
     var viaLocations: [CLLocationCoordinate2D] = []
     
+    // 詳細を上に表示
     var spotDetailView: SpotDetailView! = nil
     
     
@@ -42,6 +45,7 @@ class MapViewController: BaseViewController {
             addSpotPin(spot)
         }
         
+        // 経路を表示
         var prel: CLLocationCoordinate2D! = nil
         for l in self.viaLocations {
             if let unwrappedPrel = prel {
@@ -49,19 +53,19 @@ class MapViewController: BaseViewController {
             }
             prel = l
         }
+
         
-        
+        // mapをタップしたら詳細が消えるようにrecognizerを追加
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap")
         mapView.addGestureRecognizer(tapGestureRecognizer)
-        
-        
-        
-        
+
+        // 閉じるボタン
         dismissButton.frame = CGRectMake(30,50, 50,50)
         dismissButton.layer.cornerRadius = 25
         dismissButton.setTitle("✕", forState: .Normal)
         dismissButton.titleLabel?.font = UIFont.systemFontOfSize(30)
         dismissButton.setTitleColor(Constants.COLOR_DISABLED, forState: .Normal)
+        dismissButton.setTitleColor(Constants.COLOR_WHITE, forState: .Highlighted)
         dismissButton.backgroundColor = Constants.COLOR_WHITE
         dismissButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
         self.view.addSubview(dismissButton)
@@ -70,7 +74,7 @@ class MapViewController: BaseViewController {
             spotDetailView = SpotDetailView.create(self)
             self.view.addSubview(spotDetailView)
         }
-        spotDetailView.setUp(Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
+        spotDetailView.setUp(self.spots.first ?? Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
         spotDetailView.hidden = true
         
     }
@@ -124,6 +128,7 @@ class MapViewController: BaseViewController {
         pin.title = spot.name
         pin.subtitle = spot.detail
         pin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(spot.latitude), CLLocationDegrees(spot.longitude))
+        
         mapView.addAnnotation(pin)
     }
     
@@ -199,4 +204,27 @@ extension MapViewController: MKMapViewDelegate {
             return polylineRenderer
         }
     }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation === mapView.userLocation { // 現在地を示すアノテーションの場合はデフォルトのまま
+            return nil
+        } else {
+            let reuseId = "pin"
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView?.animatesDrop = true
+            }
+            else {
+                pinView?.annotation = annotation
+            }
+            
+            return pinView
+        }
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("callout tapped")
+    }
+
 }
