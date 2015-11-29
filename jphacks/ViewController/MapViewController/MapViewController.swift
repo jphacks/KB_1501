@@ -35,7 +35,7 @@ class MapViewController: BaseViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let statusBarHeight = Util.getStatusBarHeight()
-        mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight - 70)
+        mapView.frame = CGRectMake(0, statusBarHeight, self.view.bounds.width, self.view.bounds.height - statusBarHeight - 65)
         if !self.view.subviews.contains(mapView) {
             self.view.addSubview(mapView)
         }
@@ -73,6 +73,7 @@ class MapViewController: BaseViewController {
         
         if spotDetailView == nil {
             spotDetailView = SpotDetailView.create(self)
+            spotDetailView.mapViewController = self
             self.view.addSubview(spotDetailView)
         }
         spotDetailView.setUp(self.spots.first ?? Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
