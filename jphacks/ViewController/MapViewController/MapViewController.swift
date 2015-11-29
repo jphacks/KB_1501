@@ -23,6 +23,31 @@ class MapViewController: BaseViewController {
     // 経路として通る点
     var viaLocations: [CLLocationCoordinate2D] = []
     
+    var totalTime: Int! = nil
+    var totalDist: Int! = nil
+    
+    var routes: [MKRoute] = [] {
+        didSet {
+            var time: Double = 0
+            var dist: Double = 0
+            for route in self.routes {
+                time += Double(route.expectedTravelTime)
+                dist += Double(route.distance)
+            }
+            
+            if !routes.isEmpty {
+                self.totalTime = Int(time/60)
+                self.totalDist = Int(dist)
+                
+                self.distanceLabel?.text = "(\(self.totalDist) m)"
+                self.needTimeLabel?.text = "\(self.totalTime) 分"
+            } else {
+                self.distanceLabel?.text = ""
+                self.needTimeLabel?.text = "計算中…"
+            }
+        }
+    }
+    
     // 詳細を上に表示
     var spotDetailView: SpotDetailView! = nil
     
@@ -168,6 +193,7 @@ class MapViewController: BaseViewController {
     func redrawRoutes() {
         self.mapView.removeOverlays(self.mapView.overlays)
         
+        self.routes = []
         var prel: CLLocationCoordinate2D! = nil
         for l in self.viaLocations {
             if let unwrappedPrel = prel {
@@ -225,12 +251,14 @@ class MapViewController: BaseViewController {
             if let route = response?.routes.first as MKRoute? {
                 print("目的地まで \(route.distance)m")
                 print("所要時間 \(Int(route.expectedTravelTime/60))分")
-            
+                
+                self.routes.append(route)
+                
                 // mapViewにルートを描画.
                 self.mapView.addOverlay(route.polyline)
             }
-
         }
+        
     }
     
     // tapをおいたとき用
