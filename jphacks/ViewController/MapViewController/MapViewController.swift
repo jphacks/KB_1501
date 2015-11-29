@@ -46,17 +46,11 @@ class MapViewController: BaseViewController {
         }
         
         // 経路を表示
-        var prel: CLLocationCoordinate2D! = nil
-        for l in self.viaLocations {
-            if let unwrappedPrel = prel {
-                addRoute(unwrappedPrel, toCoordinate: l)
-            }
-            prel = l
-        }
+        redrawRoutes()
 
         
         // mapをタップしたら詳細が消えるようにrecognizerを追加
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap")
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tappedMap:")
         mapView.addGestureRecognizer(tapGestureRecognizer)
 
         // 閉じるボタン
@@ -76,7 +70,34 @@ class MapViewController: BaseViewController {
         }
         spotDetailView.setUp(self.spots.first ?? Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
         spotDetailView.hidden = true
+    }
+    
+    func getDist(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) -> Double {
+        return pow(fromLocation.latitude - toLocation.latitude, 2) + pow(fromLocation.longitude - toLocation.longitude, 2)
+    }
+    
+    // 適切な位置にinsertする
+    func insertViaLocation(location: CLLocationCoordinate2D) {
+        var index = 0
+        var minDistDiff:Double = 100000000
         
+        
+        var prel: CLLocationCoordinate2D! = nil
+        for (i,l) in self.viaLocations.enumerate() {
+            if let unwrappedPrel = prel {
+                let distDiff = getDist(unwrappedPrel, toLocation: location) + getDist(location, toLocation: l) - getDist(unwrappedPrel, toLocation: l)
+                // 最小の更新
+                if distDiff < minDistDiff {
+                    index = i
+                    minDistDiff = distDiff
+                }
+            }
+            // はじめだけ
+            prel = l
+        }
+        
+        viaLocations.insert(location, atIndex: index)
+        redrawRoutes()
     }
     
     func fitMapWithSpots(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) {
@@ -115,12 +136,31 @@ class MapViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func tappedMap() {
+    func tappedMap(sender: UIGestureRecognizer?) {
         self.spotDetailView.hidden = true
+        
+        // タップした位置にpinをおく&ルートとしてよる
+        
+        /*let location = getLocationFromTap(sender!)
+        self.insertViaLocation(location)
+        self.addPin(location)*/
     }
     
     func dismiss() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // 一旦削除してルートを再描画
+    func redrawRoutes() {
+        self.mapView.removeOverlays(self.mapView.overlays)
+        
+        var prel: CLLocationCoordinate2D! = nil
+        for l in self.viaLocations {
+            if let unwrappedPrel = prel {
+                addRoute(unwrappedPrel, toCoordinate: l)
+            }
+            prel = l
+        }
     }
     
     func addSpotPin(spot: Spot) {
@@ -167,7 +207,7 @@ class MapViewController: BaseViewController {
             }
             
             if let route = response?.routes.first as MKRoute? {
-                print("目的地まで \(route.distance)km")
+                print("目的地まで \(route.distance)m")
                 print("所要時間 \(Int(route.expectedTravelTime/60))分")
             
                 // mapViewにルートを描画.
@@ -178,7 +218,7 @@ class MapViewController: BaseViewController {
     }
     
     // tapをおいたとき用
-    func getLocationFromTap(sender: UILongPressGestureRecognizer) -> CLLocationCoordinate2D {
+    func getLocationFromTap(sender: UIGestureRecognizer) -> CLLocationCoordinate2D {
         return self.mapView.convertPoint(sender.locationInView(mapView), toCoordinateFromView: mapView)
     }
 }
@@ -213,6 +253,7 @@ extension MapViewController: MKMapViewDelegate {
             var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
             if pinView == nil {
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                
                 pinView?.animatesDrop = true
             }
             else {
