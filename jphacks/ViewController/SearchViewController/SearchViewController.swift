@@ -30,22 +30,20 @@ class SearchViewController: BaseViewController {
     
     
     @IBAction func GoToMapView(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "MapView", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! MapViewController
-
-        controller.spots = SpotManager.sharedController.sightseeingSpotRepository.spots
+        var spots: [Spot] = SpotManager.sharedController.sightseeingSpotRepository.spots
         if toiletToggle.hilightened {
-            controller.spots += SpotManager.sharedController.toiletSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.toiletSpotRepository.spots as [Spot]
         }
         if nightSpotsToggle.hilightened {
-            controller.spots += SpotManager.sharedController.nightViewSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.nightViewSpotRepository.spots as [Spot]
         }
         if monumentsToggle.hilightened {
-            controller.spots += SpotManager.sharedController.sculptureSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.sculptureSpotRepository.spots as [Spot]
         }
         if theatersToggle.hilightened {
-            controller.spots += SpotManager.sharedController.filmingLocationSpotRepository.spots as [Spot]
+            spots += SpotManager.sharedController.filmingLocationSpotRepository.spots as [Spot]
         }
+        
         var viaLocations: [CLLocationCoordinate2D] = []
         if let spot = SpotManager.startSpot {
             viaLocations.append(CLLocationCoordinate2D(latitude: spot.latitude, longitude: spot.longitude))
@@ -66,11 +64,9 @@ class SearchViewController: BaseViewController {
             return
         }
         
-        
-        
         let storyboard = UIStoryboard(name: "MapView", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! MapViewController
-        controller.spots = SpotManager.sharedController.sightseeingSpotRepository.spots
+        controller.spots = spots
         controller.viaLocations = viaLocations
         self.presentViewController(controller, animated: true, completion: nil)
     }
