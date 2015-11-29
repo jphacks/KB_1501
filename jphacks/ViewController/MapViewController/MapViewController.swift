@@ -223,7 +223,7 @@ class MapViewController: BaseViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    // Regionが変更された時に呼び出されるメソッド.
+    // マップが移動した時
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         self.spotDetailView?.hidden = true
     }
@@ -265,13 +265,9 @@ extension MapViewController: MKMapViewDelegate {
     
     //
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        print("callout tapped2")
+        print(view.annotation?.title)
+        spotDetailView.setUp(Spot(name: view.annotation!.title!!, address: "", detail: view.annotation!.subtitle!!, latitude: 135, longitude: 35))
         spotDetailView.hidden = false
     }
     
-    /*func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
-        <#code#>
-    }*/
-    
-
 }
