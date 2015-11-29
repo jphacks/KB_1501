@@ -1,4 +1,5 @@
 # droppin(ドロッピン)
+![walk.gif](https://qiita-image-store.s3.amazonaws.com/0/77778/a159879e-5415-6cd5-3485-aa593bb4b06e.gif "walk.gif")
 
 ## 製品概要
 寄り道アプリ
@@ -56,3 +57,12 @@
 
 #### デバイス
 * iPhone(iOS)
+
+### スクリーンショット
+![Slack for iOS Upload.png.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/9f9b4437-8226-8309-e26a-c87f53a1ffb5.jpeg "Slack for iOS Upload.png.jpeg")
+![Slack for iOS Upload.png-4.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/97d0751a-e766-6912-f937-7cbf122b29d3.jpeg "Slack for iOS Upload.png-4.jpeg")
+![Slack for iOS Upload.png-3.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/1082b141-5a03-26e7-5a8c-a4d7df4669c8.jpeg "Slack for iOS Upload.png-3.jpeg")
+![Slack for iOS Upload.png-2.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/9e408397-64a9-b57e-3dc8-081bfbfb512c.jpeg "Slack for iOS Upload.png-2.jpeg")
+![IMG_1406.jpg](https://qiita-image-store.s3.amazonaws.com/0/77778/ee0d9c56-e292-4b01-a7cb-aa0efbc0a752.jpeg "IMG_1406.jpg")
+![Slack for iOS Upload.png.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/cff7bf71-f1cf-05f4-6acd-1395e76ea936.jpeg)
+![Slack for iOS Upload-1.png.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/7970df29-9af6-05ed-98fb-1494dd77ecab.jpeg)
