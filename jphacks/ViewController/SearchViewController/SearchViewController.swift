@@ -15,10 +15,10 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var targetLocationButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
 
+    @IBOutlet weak var sightSeeingsToggle: SpotOptionButton!
     @IBOutlet weak var toiletToggle: SpotOptionButton!
     @IBOutlet weak var nightSpotsToggle: SpotOptionButton!
     @IBOutlet weak var monumentsToggle: SpotOptionButton!
-    @IBOutlet weak var structureToggle: SpotOptionButton!
     @IBOutlet weak var convinienceToggle: SpotOptionButton!
     @IBOutlet weak var theatersToggle: SpotOptionButton!
 
@@ -30,7 +30,10 @@ class SearchViewController: BaseViewController {
     
     
     @IBAction func GoToMapView(sender: AnyObject) {
-        var spots: [Spot] = SpotManager.sharedController.sightseeingSpotRepository.spots
+        var spots: [Spot] = []
+        if sightSeeingsToggle.hilightened {
+            spots += SpotManager.sharedController.sightseeingSpotRepository.spots as [Spot]
+        }
         if toiletToggle.hilightened {
             spots += SpotManager.sharedController.toiletSpotRepository.spots as [Spot]
         }
