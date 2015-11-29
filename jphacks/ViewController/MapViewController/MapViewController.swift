@@ -46,13 +46,7 @@ class MapViewController: BaseViewController {
         }
         
         // 経路を表示
-        var prel: CLLocationCoordinate2D! = nil
-        for l in self.viaLocations {
-            if let unwrappedPrel = prel {
-                addRoute(unwrappedPrel, toCoordinate: l)
-            }
-            prel = l
-        }
+        redrawRoutes()
 
         
         // mapをタップしたら詳細が消えるようにrecognizerを追加
@@ -121,6 +115,18 @@ class MapViewController: BaseViewController {
     
     func dismiss() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func redrawRoutes() {
+        self.mapView.removeOverlays(self.mapView.overlays)
+        
+        var prel: CLLocationCoordinate2D! = nil
+        for l in self.viaLocations {
+            if let unwrappedPrel = prel {
+                addRoute(unwrappedPrel, toCoordinate: l)
+            }
+            prel = l
+        }
     }
     
     func addSpotPin(spot: Spot) {
