@@ -316,9 +316,16 @@ extension MapViewController: MKMapViewDelegate {
     
     //
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        print(view.annotation?.title)
-        spotDetailView.setUp((view.annotation as! SpotPinAnnotation).spot)
-        spotDetailView.hidden = false
+        guard let annotation = view.annotation else {
+            return
+        }
+        print(annotation.title)
+        if annotation.isKindOfClass(SpotPinAnnotation) {
+            if let spot = (annotation as! SpotPinAnnotation).spot {
+                spotDetailView.setUp(spot)
+                spotDetailView.hidden = false
+            }
+        }
     }
     
     func PostTweet() {
