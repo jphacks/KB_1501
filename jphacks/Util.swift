@@ -37,3 +37,15 @@ extension UIImage {
         return resizedImage
     }
 }
+
+extension UIView {
+    func GetImage() -> UIImage{
+        let rect = self.bounds
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
+        self.layer.renderInContext(context)
+        let capturedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return capturedImage
+    }
+}

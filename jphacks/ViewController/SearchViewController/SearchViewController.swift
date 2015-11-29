@@ -26,9 +26,6 @@ class SearchViewController: BaseViewController {
 
     let locationManager = CLLocationManager()
     
-
-    
-    
     @IBAction func GoToMapView(sender: AnyObject) {
         var spots: [Spot] = []
         if sightSeeingsToggle.hilightened {
