@@ -70,6 +70,7 @@ class MapViewController: BaseViewController {
         
         if spotDetailView == nil {
             spotDetailView = SpotDetailView.create(self)
+            spotDetailView.mapViewController = self
             self.view.addSubview(spotDetailView)
         }
         spotDetailView.setUp(self.spots.first ?? Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
