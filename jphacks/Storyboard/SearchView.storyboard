@@ -128,15 +128,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0n-PA-gbx" userLabel="StructuresToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="121" y="297" width="64" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0n-PA-gbx" userLabel="StructuresToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="49" y="297" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="off-5"/>
+                                <state key="normal" image="on-5"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="imageId">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hilightened" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpx-1L-aF6" userLabel="ConvinienceToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
@@ -150,7 +151,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-cg-Pph" userLabel="TheaterToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-cg-Pph" userLabel="WifiToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
                                 <rect key="frame" x="262" y="363" width="64" height="64"/>
                                 <animations/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -158,17 +159,6 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="imageId">
                                         <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEM-u8-egt" userLabel="TheaterToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
-                                <rect key="frame" x="49" y="302" width="64" height="59"/>
-                                <animations/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="off-8"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="imageId">
-                                        <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
@@ -210,19 +200,29 @@
                                 <rect key="frame" x="98" y="469" width="178" height="37"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEM-u8-egt" userLabel="RestaurantToggle" customClass="SpotOptionButton" customModule="jphacks" customModuleProvider="target">
+                                <rect key="frame" x="121" y="302" width="64" height="59"/>
+                                <animations/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="off-8"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageId">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="ToiletToggle" destination="vt3-UX-TSz" id="FSk-et-z2e"/>
                         <outlet property="convinienceToggle" destination="Mpx-1L-aF6" id="CiW-Hd-NEa"/>
                         <outlet property="monumentsToggle" destination="zYE-Nh-R29" id="RRn-lb-FGJ"/>
                         <outlet property="nightSpotsToggle" destination="IEx-pE-X6F" id="xL8-O0-Y54"/>
                         <outlet property="searchButton" destination="blS-VY-ljn" id="3Xn-Sd-8RW"/>
+                        <outlet property="sightSeeingsToggle" destination="M0n-PA-gbx" id="7f2-Dz-Ca8"/>
                         <outlet property="startLocationButton" destination="10b-yQ-XCF" id="S30-wf-7V6"/>
-                        <outlet property="structureToggle" destination="M0n-PA-gbx" id="OTD-dm-1ed"/>
                         <outlet property="targetLocationButton" destination="LUD-eb-VXd" id="ghM-wI-PUl"/>
                         <outlet property="theatersToggle" destination="N6i-ji-KK5" id="kTU-eY-waY"/>
                         <outlet property="toiletToggle" destination="vt3-UX-TSz" id="lhR-SB-krF"/>
@@ -240,10 +240,10 @@
         <image name="off-2" width="51" height="66"/>
         <image name="off-3" width="51" height="66"/>
         <image name="off-4" width="51" height="66"/>
-        <image name="off-5" width="51" height="66"/>
         <image name="off-6" width="51" height="66"/>
         <image name="off-7" width="51" height="66"/>
         <image name="off-8" width="51" height="66"/>
+        <image name="on-5" width="51" height="66"/>
         <image name="search_button" width="133" height="133"/>
         <image name="search_button_droppin" width="161" height="39"/>
     </resources>
