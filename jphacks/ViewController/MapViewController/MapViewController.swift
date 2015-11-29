@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Social
 
 class MapViewController: BaseViewController {
     
@@ -70,6 +71,12 @@ class MapViewController: BaseViewController {
         }
         spotDetailView.setUp(self.spots.first ?? Spot(name: "大阪", address: "0-0-0", detail: "ｆｄさいｆｊｄしお", latitude: 135, longitude: 35))
         spotDetailView.hidden = true
+        
+        let tweetButton: UIButton = UIButton(frame: CGRectMake(300,100,100,100))
+        tweetButton.backgroundColor = UIColor.whiteColor()
+        tweetButton.addTarget(self, action: "PostTweet", forControlEvents: .TouchUpInside)
+        tweetButton.setTitle("Tweet", forState: .Normal)
+        self.view.addSubview(tweetButton)
     }
     
     func getDist(fromLocation: CLLocationCoordinate2D, toLocation: CLLocationCoordinate2D) -> Double {
@@ -137,7 +144,6 @@ class MapViewController: BaseViewController {
     }
     
     func tappedMap(sender: UIGestureRecognizer?) {
-        self.spotDetailView.hidden = true
         
         // タップした位置にpinをおく&ルートとしてよる
         
@@ -224,9 +230,9 @@ class MapViewController: BaseViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    // Regionが変更された時に呼び出されるメソッド.
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("regionDidChangeAnimated")
+    // マップが移動した時
+    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        self.spotDetailView?.hidden = true
     }
     
     // 経路を描画するときの色や線の太さを指定
@@ -264,9 +270,17 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
+    //
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        print("callout tapped2")
+        print(view.annotation?.title)
+        spotDetailView.setUp(Spot(name: view.annotation!.title!!, address: "", detail: view.annotation!.subtitle!!, latitude: 135, longitude: 35))
         spotDetailView.hidden = false
     }
-
+    
+    func PostTweet() {
+        let tweetView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        tweetView.setInitialText("よりみち")
+        tweetView.addImage(self.view.GetImage() as UIImage)
+        self.presentViewController(tweetView, animated: true, completion: nil)
+    }
 }

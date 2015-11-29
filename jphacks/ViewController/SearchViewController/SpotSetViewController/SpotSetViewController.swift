@@ -27,6 +27,11 @@ class SpotSetViewController: BaseViewController {
         seachedTableView.allowsSelection = true
         seachedTableView.allowsMultipleSelection = false
         spots = SpotManager.sharedController.spots
+        searchBar.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        searchBar.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,7 +39,9 @@ class SpotSetViewController: BaseViewController {
     }
     
     func dismiss(){
-        completion(spot)
+        if spot != nil {
+            completion(spot)
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

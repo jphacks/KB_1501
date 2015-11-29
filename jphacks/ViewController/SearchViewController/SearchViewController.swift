@@ -23,10 +23,9 @@ class SearchViewController: BaseViewController {
     @IBOutlet weak var theatersToggle: SpotOptionButton!
 
     var splashImageView: UIImageView!
+    var walkAnimationImageView: UIImageView!
 
     let locationManager = CLLocationManager()
-    
-
     
     
     @IBAction func GoToMapView(sender: AnyObject) {
@@ -88,13 +87,23 @@ class SearchViewController: BaseViewController {
         self.view.addSubview(header)
         
         searchButton.layer.cornerRadius = 60
-        
-        
         let frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.size.width + 100, height: self.view.frame.size.height + 100)
         self.splashImageView = UIImageView(frame: frame)
         self.splashImageView.center = self.view.center
-        self.splashImageView.image = UIImage(named: "Loading")
+        self.splashImageView.image = UIImage(named: "splash")
         self.view.addSubview(self.splashImageView)
+
+        let frame2 = CGRect(x: self.view.center.x, y: self.view.center.y, width: 50, height: 50)
+        self.walkAnimationImageView = UIImageView(frame: frame2)
+        self.walkAnimationImageView.center = self.view.center
+        self.walkAnimationImageView.center.y += 70
+        self.walkAnimationImageView.animationImages = [UIImage]()
+        self.walkAnimationImageView.image = UIImage(named: "walk_00000")
+        for i in 0..<30 {
+            let frameName = String(format: "walk_%05d", i)
+            self.walkAnimationImageView.animationImages?.append(UIImage(named: frameName)!)
+        }
+        self.view.addSubview(self.walkAnimationImageView)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -103,23 +112,30 @@ class SearchViewController: BaseViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        UIView.animateWithDuration(0.3,
-            delay: 1.0,
+        self.walkAnimationImageView.animationDuration = 1
+        self.walkAnimationImageView.startAnimating()
+        
+        UIView.animateWithDuration(0.6, // 0.3
+            delay: 1.0, // 1.0,
             options: UIViewAnimationOptions.CurveEaseOut,
             animations: { () in
                 self.splashImageView.transform = CGAffineTransformMakeScale(0.9, 0.9)
+                self.walkAnimationImageView.transform = CGAffineTransformMakeScale(0.9, 0.9)
             }, completion: nil
         )
         
-        UIView.animateWithDuration(0.2,
-            delay: 1.3,
+        UIView.animateWithDuration(0.5, // 0.2,
+            delay: 1.6, // 1.3,
             options: UIViewAnimationOptions.CurveEaseOut,
             animations: { () in
                 self.splashImageView.transform = CGAffineTransformMakeScale(1.2, 1.2)
                 self.splashImageView.alpha = 0
+                self.walkAnimationImageView.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                self.walkAnimationImageView.alpha = 0
             }, completion: { (Bool) in
                 self.splashImageView.removeFromSuperview()
-        })        
+                self.walkAnimationImageView.removeFromSuperview()
+        })
     }
     
     override func viewWillDisappear(animated: Bool) {
