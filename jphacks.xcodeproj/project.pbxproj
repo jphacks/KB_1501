@@ -13,6 +13,7 @@
 		555C695F1C09793000D9B656 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C695E1C09793000D9B656 /* BaseViewController.swift */; };
 		555C69681C0994B100D9B656 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C69671C0994B100D9B656 /* SpotDetailView.swift */; };
 		555C696A1C09953500D9B656 /* SpotDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555C69691C09953500D9B656 /* SpotDetailView.xib */; };
+		555C696C1C0AB40C00D9B656 /* SpotPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C696B1C0AB40C00D9B656 /* SpotPinAnnotation.swift */; };
 		55891C161C092F16003B360B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55891C151C092F16003B360B /* AppDelegate.swift */; };
 		55891C1D1C092F16003B360B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55891C1C1C092F16003B360B /* Assets.xcassets */; };
 		55891C201C092F16003B360B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55891C1E1C092F16003B360B /* LaunchScreen.storyboard */; };
@@ -72,6 +73,7 @@
 		555C695E1C09793000D9B656 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		555C69671C0994B100D9B656 /* SpotDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		555C69691C09953500D9B656 /* SpotDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpotDetailView.xib; sourceTree = "<group>"; };
+		555C696B1C0AB40C00D9B656 /* SpotPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotPinAnnotation.swift; sourceTree = "<group>"; };
 		55891C121C092F16003B360B /* jphacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jphacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55891C151C092F16003B360B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55891C1C1C092F16003B360B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				B1ADC3FC1C09368E005D35A1 /* MapViewController.swift */,
 				555C69671C0994B100D9B656 /* SpotDetailView.swift */,
 				555C69691C09953500D9B656 /* SpotDetailView.xib */,
+				555C696B1C0AB40C00D9B656 /* SpotPinAnnotation.swift */,
 			);
 			path = MapViewController;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				FA16CBE71C09E0FF00A9F056 /* SpotOptionButton.swift in Sources */,
 				555C695B1C09744700D9B656 /* Util.swift in Sources */,
 				B1C4CAD41C0942BD00543F92 /* NightViewSpot.swift in Sources */,
+				555C696C1C0AB40C00D9B656 /* SpotPinAnnotation.swift in Sources */,
 				B1ADC3FB1C093655005D35A1 /* SearchViewController.swift in Sources */,
 				B1C4CAD61C0942CE00543F92 /* SightseeingSpot.swift in Sources */,
 				B1C4CAEF1C09702B00543F92 /* FilmingLocationSpotRepository.swift in Sources */,

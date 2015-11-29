@@ -16,6 +16,8 @@ class SpotDetailView: UIView {
     @IBOutlet weak var descriptionView: UITextView!
     @IBOutlet weak var whiteView: UIView!
     
+    var currentSpot: Spot! = nil
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -45,5 +47,7 @@ class SpotDetailView: UIView {
         
         self.backgroundColor = Constants.COLOR_LIGHT_GREEN
         self.whiteView.backgroundColor = Constants.COLOR_WHITE
+        
+        self.currentSpot = spot
     }
 }

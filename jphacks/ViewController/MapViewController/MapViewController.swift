@@ -170,9 +170,10 @@ class MapViewController: BaseViewController {
     }
     
     func addSpotPin(spot: Spot) {
-        let pin = MKPointAnnotation()
+        let pin = SpotPinAnnotation()
         pin.title = spot.name
         pin.subtitle = spot.detail
+        pin.spot = spot
         pin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(spot.latitude), CLLocationDegrees(spot.longitude))
         
         mapView.addAnnotation(pin)
@@ -273,7 +274,7 @@ extension MapViewController: MKMapViewDelegate {
     //
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         print(view.annotation?.title)
-        spotDetailView.setUp(Spot(name: view.annotation!.title!!, address: "", detail: view.annotation!.subtitle!!, latitude: 135, longitude: 35))
+        spotDetailView.setUp((view.annotation as! SpotPinAnnotation).spot)
         spotDetailView.hidden = false
     }
     
