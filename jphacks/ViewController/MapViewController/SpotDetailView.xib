@@ -20,7 +20,7 @@
                     <rect key="frame" x="141" y="97" width="209" height="35"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1E2-8Y-94g">
@@ -41,7 +41,7 @@
                     <rect key="frame" x="141" y="48" width="209" height="41"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
