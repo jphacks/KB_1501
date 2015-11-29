@@ -40,6 +40,9 @@ class SpotDetailView: UIView {
         self.descriptionView.attributedText = NSAttributedString(string: spot.detail, attributes: attributes)
         self.descriptionView.editable = false
         
+        self.iconView.image = UIImage(named: "sightseeing.png")
+        self.iconView.backgroundColor = UIColor.clearColor()
+        
         self.backgroundColor = Constants.COLOR_LIGHT_GREEN
         self.whiteView.backgroundColor = Constants.COLOR_WHITE
     }
