@@ -39,16 +39,16 @@
 * サービスを印象づけるブランディングデザイン
 
 ## 開発技術
-* Swift
+* Swift 2.1
 
 ### 活用した技術
-* Xcode
+* Xcode 7.1.1
 * Photoshop
 * Illustrator
 * AfterEffects
 
 #### API・データ
-* 神戸市のオープンデータ
+* 神戸市のオープンデータ(トイレ、夜景、観光、彫刻、ロケ地)
 
 #### フレームワーク・ライブラリ・モジュール
 * iOS Map Kit
@@ -56,11 +56,41 @@
 * iOS Core Location
 
 #### デバイス
-* iPhone(iOS)
+* iPhone 6/6s
+画面からはみ出る場合は、設定→画面表示と明るさ、から「表示」を
+「標準」に設定してください。
+
+* iPhone 6 Plus/6s Plus
+画面が余る場合は、設定→画面表示と明るさ、から「表示」を
+「拡大」に設定してください。
+
+#### 実行
+
+gem 2.4.5.1
+cocoapods 0.39.0
+Xcode 7.1.1
+
+
+```bash
+git clone git@github.com:jphacks/KB_01.git
+pod install
+```
+
+Xcodeで開いてRun
+
+
+### 未実装箇所
+* ごはん、コンビニ、Wi-Fiの検索は神戸市のオープンデータが存在しなかったため、現在は機能として利用不可
+* mapの上に表示される、スポットの詳細表示画面のアイコンは、どのジャンルのスポットに対しても観光地のまま
+
+### 技術的な仕組み
+
+ルート探索は、MapKitに全て任せると遅いので、先に通る順番のみ、緯度経度から概算の大小関係を出して計算している。すでにあるルートが最適であるとして、新しいスポットを追加するとき、どこの間に入れた時の距離の和の増分が小さくなるかのみ計算して挿入している。その後、通常通りルートを計算させている。
+
 
 ### スクリーンショット
 
-https://youtu.be/aIsHwQ8poUo
+<iframe width="420" height="315" src="https://www.youtube.com/embed/aIsHwQ8poUo" frameborder="0" allowfullscreen></iframe>
 
 ![Slack for iOS Upload.png.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/9f9b4437-8226-8309-e26a-c87f53a1ffb5.jpeg "Slack for iOS Upload.png.jpeg")
 ![Slack for iOS Upload.png-4.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/97d0751a-e766-6912-f937-7cbf122b29d3.jpeg "Slack for iOS Upload.png-4.jpeg")
