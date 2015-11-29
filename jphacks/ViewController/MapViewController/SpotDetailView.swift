@@ -14,6 +14,7 @@ class SpotDetailView: UIView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var descriptionView: UITextView!
+    @IBOutlet weak var whiteView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,9 +30,14 @@ class SpotDetailView: UIView {
     
     func setUp(spot: Spot) {
         self.nameLabel.text = spot.name
+        self.nameLabel.textColor = Constants.COLOR_WHITE
         self.genreLabel.text = spot.address
+        self.genreLabel.textColor = Constants.COLOR_WHITE
         
         self.descriptionView.text = spot.detail
         self.descriptionView.editable = false
+        
+        self.backgroundColor = Constants.COLOR_LIGHT_GREEN
+        self.whiteView.backgroundColor = Constants.COLOR_WHITE
     }
 }

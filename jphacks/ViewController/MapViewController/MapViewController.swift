@@ -264,8 +264,9 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        print("callout tapped")
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        print("callout tapped2")
+        spotDetailView.hidden = false
     }
 
 }
