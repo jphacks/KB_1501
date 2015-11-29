@@ -31,7 +31,7 @@ class SearchHeaderView : UIView {
             settingButton.frame = CGRectMake(self.frame.maxX  - 50, self.bounds.minY + 10, self.bounds.height - 16, self.bounds.height - 16)
             settingButton.setBackgroundImage(UIImage(named: "setting"), forState: .Normal)
             settingButton.contentMode = UIViewContentMode.ScaleAspectFill
-            self.addSubview(settingButton)
+            //self.addSubview(settingButton)
         }
     }
 }
