@@ -44,6 +44,9 @@ class MapViewController: BaseViewController {
         // mapの表示範囲
         fitMapWithSpots(viaLocations.first!, toLocation: viaLocations.last!)
         
+        addPin(viaLocations.first!)
+        addPin(viaLocations.last!)
+        
         // 渡されたspotsについてピンを立てる
         spots.forEach { spot in
             addSpotPin(spot)
@@ -185,10 +188,11 @@ class MapViewController: BaseViewController {
     }
     
     func addPin(location: CLLocationCoordinate2D) {
-        let pin = MKPointAnnotation()
+        let pin = SpotPinAnnotation()
         pin.coordinate = location
         pin.title = "title"
         pin.subtitle = "sub title"
+        pin.pinColor = UIColor.blueColor()
         mapView.addAnnotation(pin)
     }
     
@@ -270,6 +274,12 @@ extension MapViewController: MKMapViewDelegate {
             }
             else {
                 pinView?.annotation = annotation
+            }
+            
+            if annotation.isKindOfClass(SpotPinAnnotation.self) {
+                if let color = (annotation as! SpotPinAnnotation).pinColor {
+                    pinView?.pinTintColor = color
+                }
             }
             
             return pinView
