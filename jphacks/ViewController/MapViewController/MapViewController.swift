@@ -76,8 +76,8 @@ class MapViewController: BaseViewController {
         return pow(fromLocation.latitude - toLocation.latitude, 2) + pow(fromLocation.longitude - toLocation.longitude, 2)
     }
     
+    // 適切な位置にinsertする
     func insertViaLocation(location: CLLocationCoordinate2D) {
-        //location.
         var index = 0
         var minDistDiff:Double = 100000000
         
@@ -139,16 +139,18 @@ class MapViewController: BaseViewController {
     func tappedMap(sender: UIGestureRecognizer?) {
         self.spotDetailView.hidden = true
         
+        // タップした位置にpinをおく&ルートとしてよる
         
-        let location = getLocationFromTap(sender!)
+        /*let location = getLocationFromTap(sender!)
         self.insertViaLocation(location)
-        self.addPin(location)
+        self.addPin(location)*/
     }
     
     func dismiss() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // 一旦削除してルートを再描画
     func redrawRoutes() {
         self.mapView.removeOverlays(self.mapView.overlays)
         
