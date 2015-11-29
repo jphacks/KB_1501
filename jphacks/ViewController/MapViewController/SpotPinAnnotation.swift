@@ -10,4 +10,5 @@ import MapKit
 
 class SpotPinAnnotation: MKPointAnnotation {
     var spot: Spot! = nil
+    var pinColor: UIColor? = nil
 }
