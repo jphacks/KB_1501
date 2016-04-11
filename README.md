@@ -95,7 +95,7 @@ Xcodeで開いてRun
 
 ### スクリーンショット
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/aIsHwQ8poUo" frameborder="0" allowfullscreen></iframe>
+動画->[https://www.youtube.com/watch?v=aIsHwQ8poUo](https://www.youtube.com/watch?v=aIsHwQ8poUo)
 
 ![Slack for iOS Upload.png.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/9f9b4437-8226-8309-e26a-c87f53a1ffb5.jpeg "Slack for iOS Upload.png.jpeg")
 ![Slack for iOS Upload.png-4.jpeg](https://qiita-image-store.s3.amazonaws.com/0/77778/97d0751a-e766-6912-f937-7cbf122b29d3.jpeg "Slack for iOS Upload.png-4.jpeg")
